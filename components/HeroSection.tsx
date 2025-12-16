@@ -48,7 +48,7 @@ const HeroSection: React.FC = () => {
         <div className="space-y-6 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wider uppercase shadow-sm">
             <Briefcase size={14} />
-            Director of Engineering & Architecture
+            Global Technology Executive
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
