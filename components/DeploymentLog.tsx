@@ -5,7 +5,7 @@ import { CareerNode } from '../types';
 const history: CareerNode[] = [
   {
     id: 'current',
-    role: 'Director of Engineering & Architecture',
+    role: 'Chief Architect - Client Activation & Capabilities',
     company: 'McKinsey & Company',
     period: 'Jan 2023 - Present',
     description: 'Orchestrating enterprise technology strategy, AI transformation, and operational governance for global platforms.',

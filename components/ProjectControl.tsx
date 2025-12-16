@@ -7,7 +7,7 @@ const projects: Project[] = [
     id: 'ai-platform',
     title: 'Enterprise GenAI Brain',
     type: 'ai',
-    description: 'Architected a secure RAG platform for 45,000+ users. Integrated internal Knowledge Graph with OpenAI/Bedrock to reduce information retrieval time by 30%.',
+    description: 'Architected a secure RAG platform for 45,000+ users. Integrated internal Knowledge with OpenAI to reduce information retrieval time by 30%.',
     tech: ['LangChain', 'Pinecone', 'Azure OpenAI', 'React']
   },
   {
