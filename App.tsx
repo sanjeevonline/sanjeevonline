@@ -6,6 +6,7 @@ import DeploymentLog from './components/DeploymentLog';
 import ContactFooter from './components/ContactFooter';
 import SkillsMatrix from './components/SkillsMatrix';
 import ProjectControl from './components/ProjectControl';
+import ImpactShowcase from './components/ImpactShowcase';
 
 const App: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const App: React.FC = () => {
       <main className="pt-16">
         <TerminalHero />
         <TelemetryDashboard />
+        <ImpactShowcase />
         <SkillsMatrix />
         <ArchitectureMap />
         <ProjectControl />

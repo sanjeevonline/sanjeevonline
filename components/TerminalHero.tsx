@@ -5,10 +5,11 @@ const TerminalHero: React.FC = () => {
   const [text, setText] = useState('');
   const fullText = `> INITIALIZING EXECUTIVE PROFILE...
 > LOAD MODULE: DIRECTOR_ENGINEERING
+> LOAD MODULE: ENTERPRISE_ARCHITECTURE
 > LOAD MODULE: STRATEGIC_TRANSFORMATION
 > AUTH: SANJEEV KUMAR
 > STATUS: ONLINE
-> READY FOR LEADERSHIP...`;
+> READY TO ENGAGE...`;
 
   useEffect(() => {
     let i = 0;
