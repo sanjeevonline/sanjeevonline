@@ -38,7 +38,7 @@ interface PillarDetail {
   };
 }
 
-const TelemetryDashboard: React.FC = () => {
+const StrategicPillars: React.FC = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const pillars: PillarDetail[] = [
@@ -309,4 +309,4 @@ const TelemetryDashboard: React.FC = () => {
   );
 };
 
-export default TelemetryDashboard;
+export default StrategicPillars;

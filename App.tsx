@@ -1,12 +1,12 @@
 import React from 'react';
-import TerminalHero from './components/TerminalHero';
-import TelemetryDashboard from './components/TelemetryDashboard';
-import DeploymentLog from './components/DeploymentLog';
-import ContactFooter from './components/ContactFooter';
-import SkillsMatrix from './components/SkillsMatrix';
-import ProjectControl from './components/ProjectControl';
-import ImpactShowcase from './components/ImpactShowcase';
-import Testimonials from './components/Testimonials';
+import HeroSection from './components/HeroSection';
+import StrategicPillars from './components/StrategicPillars';
+import CareerTimeline from './components/CareerTimeline';
+import Footer from './components/Footer';
+import TechnicalExpertise from './components/TechnicalExpertise';
+import FlagshipProjects from './components/FlagshipProjects';
+import BusinessImpact from './components/BusinessImpact';
+import SocialProof from './components/SocialProof';
 
 const App: React.FC = () => {
   return (
@@ -28,28 +28,28 @@ const App: React.FC = () => {
       </nav>
 
       <main className="pt-16">
-        <TerminalHero />
+        <HeroSection />
         
         {/* 1. Merged Strategic Pillars & Telemetry (The Hook & Strategy) */}
-        <TelemetryDashboard />
+        <StrategicPillars />
         
         {/* 2. Flagship Initiatives (The "What I Built" - GenAI/Data) */}
-        <ProjectControl />
+        <FlagshipProjects />
         
         {/* 3. Business Transformation Details */}
-        <ImpactShowcase />
+        <BusinessImpact />
         
         {/* 4. Technical Capability Validation */}
-        <SkillsMatrix />
+        <TechnicalExpertise />
         
         {/* 5. Career History */}
-        <DeploymentLog />
+        <CareerTimeline />
         
         {/* 6. Social Proof */}
-        <Testimonials />
+        <SocialProof />
       </main>
 
-      <ContactFooter />
+      <Footer />
     </div>
   );
 };
