@@ -76,11 +76,11 @@ const ArchitectureMap: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Visualization Area */}
-        <div className="lg:col-span-2 bg-slate-900/50 rounded-xl border border-slate-800 p-8 relative min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div className="lg:col-span-2 bg-slate-900 rounded-xl border border-slate-800 p-8 relative min-h-[500px] flex items-center justify-center overflow-hidden">
           
           {/* Animated Background Data Flow */}
           <div className="absolute inset-0 pointer-events-none">
-             <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+             <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"></div>
           </div>
 
           <div className="relative z-10 w-full h-full flex flex-col md:flex-row justify-between items-center gap-4">
@@ -90,7 +90,7 @@ const ArchitectureMap: React.FC = () => {
               <NodeButton node={nodes[0]} active={activeNode?.id === nodes[0].id} onClick={setActiveNode} icon={<Server />} />
             </div>
 
-            <ArrowRight className="text-slate-600 hidden md:block" />
+            <ArrowRight className="text-slate-700 hidden md:block" />
 
             {/* Column 2: Platform */}
             <div className="flex flex-col gap-12">
@@ -98,7 +98,7 @@ const ArchitectureMap: React.FC = () => {
               <NodeButton node={nodes[2]} active={activeNode?.id === nodes[2].id} onClick={setActiveNode} icon={<Database />} />
             </div>
 
-            <ArrowRight className="text-slate-600 hidden md:block" />
+            <ArrowRight className="text-slate-700 hidden md:block" />
 
             {/* Column 3: Intelligence */}
             <div className="flex flex-col gap-12">
@@ -106,7 +106,7 @@ const ArchitectureMap: React.FC = () => {
                <NodeButton node={nodes[4]} active={activeNode?.id === nodes[4].id} onClick={setActiveNode} icon={<Layers />} />
             </div>
 
-            <ArrowRight className="text-slate-600 hidden md:block" />
+            <ArrowRight className="text-slate-700 hidden md:block" />
 
             {/* Column 4: Value */}
             <div className="flex flex-col gap-12">
@@ -117,11 +117,11 @@ const ArchitectureMap: React.FC = () => {
 
         {/* Info Panel */}
         <div className="lg:col-span-1">
-          <div className={`h-full bg-slate-900 border border-slate-700 rounded-xl p-6 transition-all duration-300 ${activeNode ? 'opacity-100 translate-x-0' : 'opacity-50'}`}>
+          <div className={`h-full bg-slate-900 border border-slate-800 rounded-xl p-6 transition-all duration-300 ${activeNode ? 'opacity-100 translate-x-0' : 'opacity-50'}`}>
             {activeNode ? (
               <>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-cyan-500/10 rounded-lg text-cyan-400">
+                  <div className="p-3 bg-slate-800 rounded-lg text-cyan-400">
                     {activeNode.type === 'ai' ? <Brain size={24}/> : activeNode.type === 'data' ? <Database size={24}/> : <Server size={24}/>}
                   </div>
                   <div>
@@ -134,8 +134,8 @@ const ArchitectureMap: React.FC = () => {
                   <h4 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Strategic Outcomes</h4>
                   <ul className="space-y-3">
                     {activeNode.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-slate-300">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0"></div>
+                      <li key={idx} className="flex items-start gap-3 text-slate-400">
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0"></div>
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -169,20 +169,20 @@ const NodeButton: React.FC<{ node: ArchitectureNode; active: boolean; onClick: (
     className={`
       relative group flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl border transition-all duration-300
       ${active 
-        ? 'bg-cyan-500/10 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.3)] scale-105' 
-        : 'bg-slate-800 border-slate-700 hover:border-slate-500 hover:bg-slate-750'}
+        ? 'bg-cyan-500/10 border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.3)] scale-105' 
+        : 'bg-slate-900 border-slate-800 hover:border-slate-600 hover:bg-slate-800'}
     `}
   >
-    <div className={`mb-2 transition-colors ${active ? 'text-cyan-400' : 'text-slate-400 group-hover:text-slate-200'}`}>
+    <div className={`mb-2 transition-colors ${active ? 'text-cyan-400' : 'text-slate-500 group-hover:text-slate-300'}`}>
       {icon}
     </div>
-    <span className={`text-xs text-center px-2 font-medium ${active ? 'text-white' : 'text-slate-400'}`}>
+    <span className={`text-xs text-center px-2 font-medium ${active ? 'text-white' : 'text-slate-500'}`}>
       {node.label}
     </span>
     
     {/* Connector Dots for visual effect */}
-    <div className="absolute -right-1.5 top-1/2 w-3 h-3 bg-slate-900 border border-slate-600 rounded-full"></div>
-    <div className="absolute -left-1.5 top-1/2 w-3 h-3 bg-slate-900 border border-slate-600 rounded-full"></div>
+    <div className="absolute -right-1.5 top-1/2 w-3 h-3 bg-slate-950 border border-slate-700 rounded-full"></div>
+    <div className="absolute -left-1.5 top-1/2 w-3 h-3 bg-slate-950 border border-slate-700 rounded-full"></div>
   </button>
 );
 

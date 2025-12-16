@@ -28,12 +28,12 @@ const projects: Project[] = [
 
 const ProjectControl: React.FC = () => {
   return (
-    <section className="py-20 bg-slate-900/20 border-y border-slate-900">
+    <section className="py-20 bg-slate-950 border-y border-slate-900">
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-12 flex justify-between items-end">
           <div>
             <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-              <FolderGit2 className="text-cyan-400" />
+              <FolderGit2 className="text-cyan-500" />
               Project Schematics
             </h2>
             <p className="text-slate-400 max-w-xl">
@@ -58,7 +58,7 @@ const ProjectControl: React.FC = () => {
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="group relative bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-slate-600 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-900/10 flex flex-col h-full">
+    <div className="group relative bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-slate-600 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-900/10 flex flex-col h-full">
       
       {/* Visual Blueprint Header */}
       <div className="h-48 bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800 shrink-0">
@@ -70,7 +70,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         {/* Status Indicator */}
         <div className="absolute top-4 right-4 flex items-center gap-2">
            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-           <span className="text-[10px] font-mono text-green-500">DEPLOYED</span>
+           <span className="text-[10px] font-mono text-green-400">DEPLOYED</span>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
             {project.title}
           </h3>
-          <ArrowUpRight size={18} className="text-slate-600 group-hover:text-cyan-400 transition-colors" />
+          <ArrowUpRight size={18} className="text-slate-500 group-hover:text-cyan-400 transition-colors" />
         </div>
         
         <p className="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
@@ -102,7 +102,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 const renderBlueprint = (type: string) => {
   if (type === 'ai') {
     return (
-      <div className="flex items-center gap-2 text-slate-600">
+      <div className="flex items-center gap-2 text-slate-500">
         <div className="flex flex-col items-center gap-1">
             <Database size={24} />
             <span className="text-[8px] font-mono">KNOWLEDGE</span>
@@ -121,19 +121,19 @@ const renderBlueprint = (type: string) => {
   }
   if (type === 'data') {
     return (
-      <div className="flex items-center gap-2 text-slate-600">
+      <div className="flex items-center gap-2 text-slate-500">
         <div className="flex flex-col items-center">
             <Database size={24} className="text-yellow-700" />
             <span className="text-[8px] font-mono mt-1">BRONZE</span>
         </div>
-        <ArrowUpRight size={16} className="text-slate-700" />
+        <ArrowUpRight size={16} className="text-slate-600" />
         <div className="flex flex-col items-center">
             <Database size={32} className="text-slate-400" />
             <span className="text-[8px] font-mono mt-1">SILVER</span>
         </div>
-        <ArrowUpRight size={16} className="text-slate-700" />
+        <ArrowUpRight size={16} className="text-slate-600" />
         <div className="flex flex-col items-center">
-            <Database size={40} className="text-yellow-400" />
+            <Database size={40} className="text-yellow-500" />
             <span className="text-[8px] font-mono mt-1">GOLD</span>
         </div>
       </div>
@@ -141,7 +141,7 @@ const renderBlueprint = (type: string) => {
   }
   // Process / DevEx
   return (
-    <div className="flex items-center gap-3 text-slate-600">
+    <div className="flex items-center gap-3 text-slate-500">
        <div className="flex flex-col items-center gap-1">
         <Code2 size={24} />
         <span className="text-[8px] font-mono">CODE</span>

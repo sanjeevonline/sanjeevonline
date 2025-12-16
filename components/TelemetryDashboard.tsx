@@ -4,7 +4,7 @@ import { TrendingUp, Users, Wallet, Brain } from 'lucide-react';
 
 const performanceData = [
   { name: 'Legacy', value: 40, label: 'Efficiency' },
-  { name: 'Cloud Native', value: 90, label: 'Efficiency' },
+  { name: 'Modern', value: 95, label: 'Efficiency' },
 ];
 
 const teamData = [
@@ -23,114 +23,28 @@ const aiData = [
 
 const TelemetryDashboard: React.FC = () => {
   return (
-    <section className="py-20 bg-slate-900/30 border-y border-slate-800">
+    <section className="py-20 bg-slate-950 border-y border-slate-900">
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-10">
           <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-            <TrendingUp className="text-green-400" />
+            <TrendingUp className="text-green-500" />
             Performance Telemetry
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          {/* Card 1: Performance Boost */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-            <div className="flex justify-between items-start mb-6">
-              <div>
-                <p className="text-slate-400 text-sm font-medium">System Performance</p>
-                <h3 className="text-3xl font-bold text-white mt-1">50% <span className="text-green-500 text-base">▲</span></h3>
-              </div>
-              <div className="p-2 bg-green-500/10 rounded-lg text-green-400">
-                <ActivityIcon />
-              </div>
-            </div>
-            <div className="h-40 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={performanceData} layout="vertical">
-                   <CartesianGrid strokeDasharray="3 3" stroke="#334155" horizontal={false} />
-                   <XAxis type="number" hide />
-                   <YAxis dataKey="name" type="category" width={80} tick={{fill: '#94a3b8', fontSize: 10}} />
-                   <Tooltip 
-                    contentStyle={{backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc'}}
-                    cursor={{fill: 'transparent'}}
-                   />
-                   <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-                      <Cell fill="#64748b" />
-                      <Cell fill="#22c55e" />
-                   </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-xs text-slate-500 mt-2">Legacy On-Prem vs. AWS/Azure Cloud Migration</p>
-          </div>
-
-          {/* Card 2: Org Scale */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-            <div className="flex justify-between items-start mb-6">
-              <div>
-                <p className="text-slate-400 text-sm font-medium">Eng. Organization</p>
-                <h3 className="text-3xl font-bold text-white mt-1">100+</h3>
-              </div>
-              <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
-                <Users size={20} />
-              </div>
-            </div>
-            <div className="h-40 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={teamData}>
-                  <defs>
-                    <linearGradient id="colorEng" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
-                  <XAxis dataKey="month" tick={{fill: '#94a3b8', fontSize: 10}} />
-                  <YAxis hide />
-                  <Tooltip contentStyle={{backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc'}} />
-                  <Area type="monotone" dataKey="engineers" stroke="#3b82f6" fillOpacity={1} fill="url(#colorEng)" />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-             <p className="text-xs text-slate-500 mt-2">Scaled global teams & architects across regions</p>
-          </div>
-
-          {/* Card 3: AI Impact (New) */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-             <div className="flex justify-between items-start mb-6">
-              <div>
-                <p className="text-slate-400 text-sm font-medium">AI Adoption</p>
-                <h3 className="text-3xl font-bold text-white mt-1">&gt;50% <span className="text-purple-500 text-base">▲</span></h3>
-              </div>
-              <div className="p-2 bg-purple-500/10 rounded-lg text-purple-400">
-                <Brain size={20} />
-              </div>
-            </div>
-            <div className="h-40 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                 <LineChart data={aiData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
-                    <XAxis dataKey="stage" tick={{fill: '#94a3b8', fontSize: 10}} />
-                    <Tooltip contentStyle={{backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc'}} />
-                    <Line type="monotone" dataKey="usage" stroke="#a855f7" strokeWidth={3} dot={{fill: '#a855f7'}} />
-                 </LineChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-xs text-slate-500 mt-2">Increase in consultant engagement via Enterprise RAG</p>
-          </div>
-
-          {/* Card 4: Portfolio */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl relative overflow-hidden">
+          {/* Card 1: Portfolio (Moved to First) */}
+          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg">
              {/* Decorative Background */}
-             <div className="absolute -right-10 -top-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
+             <div className="absolute -right-10 -top-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl opacity-50"></div>
              
              <div className="flex justify-between items-start mb-6">
               <div>
                 <p className="text-slate-400 text-sm font-medium">Portfolio Value</p>
                 <h3 className="text-3xl font-bold text-white mt-1">$15M</h3>
               </div>
-              <div className="p-2 bg-cyan-500/10 rounded-lg text-cyan-400">
+              <div className="p-2 bg-slate-800 rounded-lg text-cyan-400">
                 <Wallet size={20} />
               </div>
             </div>
@@ -146,6 +60,92 @@ const TelemetryDashboard: React.FC = () => {
             </p>
           </div>
 
+          {/* Card 2: Org Scale */}
+          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <p className="text-slate-400 text-sm font-medium">Eng. Organization</p>
+                <h3 className="text-3xl font-bold text-white mt-1">100+</h3>
+              </div>
+              <div className="p-2 bg-slate-800 rounded-lg text-blue-400">
+                <Users size={20} />
+              </div>
+            </div>
+            <div className="h-40 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={teamData}>
+                  <defs>
+                    <linearGradient id="colorEng" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.2}/>
+                      <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+                  <XAxis dataKey="month" tick={{fill: '#64748b', fontSize: 10}} />
+                  <YAxis hide />
+                  <Tooltip contentStyle={{backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc', borderRadius: '8px'}} />
+                  <Area type="monotone" dataKey="engineers" stroke="#3b82f6" fillOpacity={1} fill="url(#colorEng)" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+             <p className="text-xs text-slate-500 mt-2">Scaled global teams & architects across regions</p>
+          </div>
+
+          {/* Card 3: AI Adoption (Moved to Third) */}
+          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
+             <div className="flex justify-between items-start mb-6">
+              <div>
+                <p className="text-slate-400 text-sm font-medium">AI Adoption</p>
+                <h3 className="text-3xl font-bold text-white mt-1">&gt;50% <span className="text-purple-400 text-base">▲</span></h3>
+              </div>
+              <div className="p-2 bg-slate-800 rounded-lg text-purple-400">
+                <Brain size={20} />
+              </div>
+            </div>
+            <div className="h-40 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                 <LineChart data={aiData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+                    <XAxis dataKey="stage" tick={{fill: '#64748b', fontSize: 10}} />
+                    <Tooltip contentStyle={{backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc', borderRadius: '8px'}} />
+                    <Line type="monotone" dataKey="usage" stroke="#a855f7" strokeWidth={3} dot={{fill: '#a855f7'}} />
+                 </LineChart>
+              </ResponsiveContainer>
+            </div>
+            <p className="text-xs text-slate-500 mt-2">Increase in consultant engagement via Enterprise RAG</p>
+          </div>
+
+          {/* Card 4: Platform Efficiency (Renamed) */}
+          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <p className="text-slate-400 text-sm font-medium">Platform Efficiency</p>
+                <h3 className="text-3xl font-bold text-white mt-1">50% <span className="text-green-400 text-base">▲</span></h3>
+              </div>
+              <div className="p-2 bg-slate-800 rounded-lg text-green-400">
+                <ActivityIcon />
+              </div>
+            </div>
+            <div className="h-40 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={performanceData} layout="vertical">
+                   <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" horizontal={false} />
+                   <XAxis type="number" hide />
+                   <YAxis dataKey="name" type="category" width={50} tick={{fill: '#64748b', fontSize: 10}} />
+                   <Tooltip 
+                    contentStyle={{backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc', borderRadius: '8px'}}
+                    cursor={{fill: 'transparent'}}
+                   />
+                   <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                      <Cell fill="#334155" />
+                      <Cell fill="#22c55e" />
+                   </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <p className="text-xs text-slate-500 mt-2">Legacy On-Prem vs. Cloud Migration Velocity</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -155,7 +155,7 @@ const TelemetryDashboard: React.FC = () => {
 const MetricRow = ({ label, value }: { label: string, value: string }) => (
   <div className="flex justify-between items-center">
     <span className="text-slate-400 text-xs">{label}</span>
-    <span className="text-white font-mono font-semibold text-sm">{value}</span>
+    <span className="text-slate-200 font-mono font-semibold text-sm">{value}</span>
   </div>
 );
 

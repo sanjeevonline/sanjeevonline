@@ -7,11 +7,12 @@ const skillData: SkillCategory[] = [
     id: 'lead',
     label: 'Executive Leadership',
     skills: [
+      { name: 'AI Governance & Strategy', level: 98 },
       { name: 'Org Scaling (100+)', level: 98 },
+      { name: 'GenAI Adoption', level: 95 },
       { name: 'Tech Strategy', level: 98 },
       { name: 'Budget Mgmt ($15M+)', level: 95 },
       { name: 'Vendor Strategy', level: 92 },
-      { name: 'Agile Transformation', level: 95 },
       { name: 'Talent Development', level: 95 }
     ]
   },
@@ -44,18 +45,6 @@ const skillData: SkillCategory[] = [
     ]
   },
   {
-    id: 'ai',
-    label: 'AI Strategy & Gov',
-    skills: [
-      { name: 'AI Governance Strategy', level: 98 },
-      { name: 'GenAI Adoption', level: 95 },
-      { name: 'Corporate AI Policy', level: 92 },
-      { name: 'Model Context Protocol (MCP)', level: 90 },
-      { name: 'Prompt Eng. Standards', level: 90 },
-      { name: 'DevEx Optimization', level: 95 }
-    ]
-  },
-  {
     id: 'cloud',
     label: 'Cloud Strategy',
     skills: [
@@ -82,7 +71,7 @@ const skillData: SkillCategory[] = [
 ];
 
 const SkillsMatrix: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeCategory, setActiveCategory] = useState<string>('lead');
 
   const filteredSkills = activeCategory === 'all' 
     ? skillData.flatMap(c => c.skills.map(s => ({...s, category: c.id})))
@@ -103,12 +92,6 @@ const SkillsMatrix: React.FC = () => {
       {/* Control Panel */}
       <div className="flex flex-wrap gap-2 mb-10 p-2 bg-slate-900/50 rounded-xl border border-slate-800 w-fit">
         <FilterBtn 
-          active={activeCategory === 'all'} 
-          onClick={() => setActiveCategory('all')} 
-          icon={<LayoutGrid size={14} />} 
-          label="ALL" 
-        />
-        <FilterBtn 
           active={activeCategory === 'lead'} 
           onClick={() => setActiveCategory('lead')} 
           icon={<Lock size={14} />} 
@@ -127,12 +110,6 @@ const SkillsMatrix: React.FC = () => {
           label="CORE_STACK" 
         />
         <FilterBtn 
-          active={activeCategory === 'ai'} 
-          onClick={() => setActiveCategory('ai')} 
-          icon={<Brain size={14} />} 
-          label="AI_STRATEGY" 
-        />
-        <FilterBtn 
           active={activeCategory === 'cloud'} 
           onClick={() => setActiveCategory('cloud')} 
           icon={<Cloud size={14} />} 
@@ -143,6 +120,12 @@ const SkillsMatrix: React.FC = () => {
           onClick={() => setActiveCategory('data')} 
           icon={<Database size={14} />} 
           label="DATA" 
+        />
+        <FilterBtn 
+          active={activeCategory === 'all'} 
+          onClick={() => setActiveCategory('all')} 
+          icon={<LayoutGrid size={14} />} 
+          label="ALL" 
         />
       </div>
 
@@ -157,8 +140,7 @@ const SkillsMatrix: React.FC = () => {
               <span className="text-slate-200 font-medium text-xs md:text-sm">{skill.name}</span>
               <div className={`w-1.5 h-1.5 rounded-full ${
                  skill.category === 'cloud' ? 'bg-blue-500' :
-                 skill.category === 'ai' ? 'bg-purple-500' :
-                 skill.category === 'ai_stack' ? 'bg-purple-400' :
+                 skill.category === 'ai_stack' ? 'bg-purple-500' :
                  skill.category === 'data' ? 'bg-yellow-500' :
                  skill.category === 'lead' ? 'bg-red-500' :
                  skill.category === 'stack' ? 'bg-orange-500' :
@@ -170,8 +152,7 @@ const SkillsMatrix: React.FC = () => {
               <div 
                 className={`h-full rounded-full transition-all duration-1000 ease-out ${
                   skill.category === 'cloud' ? 'bg-blue-500' :
-                  skill.category === 'ai' ? 'bg-purple-500' :
-                  skill.category === 'ai_stack' ? 'bg-purple-400' :
+                  skill.category === 'ai_stack' ? 'bg-purple-500' :
                   skill.category === 'data' ? 'bg-yellow-500' :
                   skill.category === 'lead' ? 'bg-red-500' :
                   skill.category === 'stack' ? 'bg-orange-500' :
