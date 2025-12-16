@@ -87,7 +87,7 @@ const TelemetryDashboard: React.FC = () => {
                 </AreaChart>
               </ResponsiveContainer>
             </div>
-             <p className="text-xs text-slate-500 mt-2">Scaled global teams & architects across regions</p>
+             <p className="text-xs text-slate-500 mt-2">Scaled engineers & architects across regions</p>
           </div>
 
           {/* Card 3: AI Implementation */}
