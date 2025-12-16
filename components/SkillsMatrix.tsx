@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu, Cloud, Database, Lock, Code, LayoutGrid, Brain } from 'lucide-react';
+import { Cpu, Cloud, Database, Lock, Code, LayoutGrid, Brain, Terminal, Bot } from 'lucide-react';
 import { SkillCategory } from '../types';
 
 const skillData: SkillCategory[] = [
@@ -16,13 +16,41 @@ const skillData: SkillCategory[] = [
     ]
   },
   {
+    id: 'ai_stack',
+    label: 'AI/ML Engineering',
+    skills: [
+      { name: 'RAG & Agentic Systems', level: 98 },
+      { name: 'LangChain / LlamaIndex / LangGraph', level: 95 },
+      { name: 'Fine-Tuning (LoRA/QLoRA)', level: 90 },
+      { name: 'PyTorch / TensorFlow', level: 88 },
+      { name: 'Vector DBs (Weaviate/Pinecone)', level: 95 },
+      { name: 'MLOps & Data Pipelines', level: 92 },
+      { name: 'AI Dev Tools (Cursor/Copilot)', level: 98 },
+      { name: 'Multimodal LLMs', level: 90 }
+    ]
+  },
+  {
+    id: 'stack',
+    label: 'Core Engineering Stack',
+    skills: [
+      { name: 'Python Ecosystem', level: 98 },
+      { name: 'TypeScript / React', level: 95 },
+      { name: 'Java / Kotlin', level: 90 },
+      { name: 'Go (Golang)', level: 85 },
+      { name: 'Kubernetes / Helm', level: 92 },
+      { name: 'Terraform / IaC', level: 95 },
+      { name: 'Kafka / Event Mesh', level: 88 },
+      { name: 'GraphQL / Federation', level: 90 }
+    ]
+  },
+  {
     id: 'ai',
-    label: 'AI & Innovation',
+    label: 'AI Strategy & Gov',
     skills: [
       { name: 'AI Governance Strategy', level: 98 },
       { name: 'GenAI Adoption', level: 95 },
-      { name: 'RAG Architecture', level: 92 },
-      { name: 'Bedrock/OpenAI', level: 90 },
+      { name: 'Corporate AI Policy', level: 92 },
+      { name: 'Model Context Protocol (MCP)', level: 90 },
       { name: 'Prompt Eng. Standards', level: 90 },
       { name: 'DevEx Optimization', level: 95 }
     ]
@@ -50,17 +78,6 @@ const skillData: SkillCategory[] = [
       { name: 'Analytics Enablement', level: 90 },
       { name: 'Data Privacy', level: 95 }
     ]
-  },
-  {
-    id: 'arch',
-    label: 'Core Architecture',
-    skills: [
-      { name: 'Microservices Pattern', level: 98 },
-      { name: 'Domain Driven Design', level: 92 },
-      { name: 'System Integration', level: 95 },
-      { name: 'Event-Driven Arch', level: 90 },
-      { name: 'Legacy Modernization', level: 98 }
-    ]
   }
 ];
 
@@ -76,10 +93,10 @@ const SkillsMatrix: React.FC = () => {
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
           <Cpu className="text-cyan-400" />
-          Executive Capability Matrix
+          Technical & Executive Capability Matrix
         </h2>
         <p className="text-slate-400 max-w-2xl">
-          Visualizing executive leadership capabilities alongside deep technical expertise. Demonstrating the ability to bridge business strategy with engineering execution.
+          Bridging the gap between high-level executive strategy and deep hands-on engineering expertise in AI, Cloud, and Data.
         </p>
       </div>
 
@@ -89,13 +106,25 @@ const SkillsMatrix: React.FC = () => {
           active={activeCategory === 'all'} 
           onClick={() => setActiveCategory('all')} 
           icon={<LayoutGrid size={14} />} 
-          label="ALL_AREAS" 
+          label="ALL" 
         />
         <FilterBtn 
           active={activeCategory === 'lead'} 
           onClick={() => setActiveCategory('lead')} 
           icon={<Lock size={14} />} 
           label="LEADERSHIP" 
+        />
+         <FilterBtn 
+          active={activeCategory === 'ai_stack'} 
+          onClick={() => setActiveCategory('ai_stack')} 
+          icon={<Bot size={14} />} 
+          label="AI_ENGINEERING" 
+        />
+         <FilterBtn 
+          active={activeCategory === 'stack'} 
+          onClick={() => setActiveCategory('stack')} 
+          icon={<Terminal size={14} />} 
+          label="CORE_STACK" 
         />
         <FilterBtn 
           active={activeCategory === 'ai'} 
@@ -129,8 +158,10 @@ const SkillsMatrix: React.FC = () => {
               <div className={`w-1.5 h-1.5 rounded-full ${
                  skill.category === 'cloud' ? 'bg-blue-500' :
                  skill.category === 'ai' ? 'bg-purple-500' :
+                 skill.category === 'ai_stack' ? 'bg-purple-400' :
                  skill.category === 'data' ? 'bg-yellow-500' :
                  skill.category === 'lead' ? 'bg-red-500' :
+                 skill.category === 'stack' ? 'bg-orange-500' :
                  'bg-green-500'
               }`}></div>
             </div>
@@ -140,8 +171,10 @@ const SkillsMatrix: React.FC = () => {
                 className={`h-full rounded-full transition-all duration-1000 ease-out ${
                   skill.category === 'cloud' ? 'bg-blue-500' :
                   skill.category === 'ai' ? 'bg-purple-500' :
+                  skill.category === 'ai_stack' ? 'bg-purple-400' :
                   skill.category === 'data' ? 'bg-yellow-500' :
                   skill.category === 'lead' ? 'bg-red-500' :
+                  skill.category === 'stack' ? 'bg-orange-500' :
                   'bg-green-500'
                 }`}
                 style={{ width: `${skill.level}%` }}
@@ -149,7 +182,11 @@ const SkillsMatrix: React.FC = () => {
             </div>
             <div className="flex justify-between items-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
                 <span className="text-[9px] text-slate-500 font-mono">LEVEL: {skill.level}</span>
-                <span className="text-[9px] text-cyan-500 font-mono">EXPERT</span>
+                <span className={`text-[9px] font-mono ${
+                    skill.category === 'stack' || skill.category === 'ai_stack' ? 'text-orange-400' : 'text-cyan-500'
+                }`}>
+                    {skill.category === 'stack' || skill.category === 'ai_stack' ? 'HANDS_ON' : 'EXPERT'}
+                </span>
             </div>
           </div>
         ))}

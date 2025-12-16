@@ -6,7 +6,6 @@ import DeploymentLog from './components/DeploymentLog';
 import ContactFooter from './components/ContactFooter';
 import SkillsMatrix from './components/SkillsMatrix';
 import ProjectControl from './components/ProjectControl';
-import ThoughtStream from './components/ThoughtStream';
 
 const App: React.FC = () => {
   return (
@@ -34,7 +33,6 @@ const App: React.FC = () => {
         <ArchitectureMap />
         <ProjectControl />
         <DeploymentLog />
-        <ThoughtStream />
       </main>
 
       <ContactFooter />
