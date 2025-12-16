@@ -112,7 +112,7 @@ const TelemetryDashboard: React.FC = () => {
                  </LineChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-xs text-slate-500 mt-2">Increase in consultant engagement via Enterprise RAG</p>
+            <p className="text-xs text-slate-500 mt-2">Increase in user engagement via Enterprise RAG</p>
           </div>
 
           {/* Card 4: Platform Efficiency (Renamed) */}
