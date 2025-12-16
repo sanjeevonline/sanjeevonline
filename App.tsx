@@ -30,13 +30,27 @@ const App: React.FC = () => {
 
       <main className="pt-16">
         <TerminalHero />
+        
+        {/* 1. Quantifiable Impact (The Hook) */}
         <TelemetryDashboard />
-        <ImpactShowcase />
-        <SkillsMatrix />
-        <ArchitectureMap />
+        
+        {/* 2. Flagship Initiatives (The "What I Built" - GenAI/Data) */}
         <ProjectControl />
-        <Testimonials />
+        
+        {/* 3. Strategic Thinking (The "Director" View) */}
+        <ArchitectureMap />
+        
+        {/* 4. Business Transformation Details */}
+        <ImpactShowcase />
+        
+        {/* 5. Technical Capability Validation */}
+        <SkillsMatrix />
+        
+        {/* 6. Career History */}
         <DeploymentLog />
+        
+        {/* 7. Social Proof */}
+        <Testimonials />
       </main>
 
       <ContactFooter />

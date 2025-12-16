@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { FolderGit2, ArrowUpRight, Database, Cloud, Brain, Server, Shield, FileText, Code2, Workflow } from 'lucide-react';
+import { FolderGit2, ArrowUpRight, Database, Cloud, Brain, Server, Shield, FileText, Code2, Workflow, Rocket } from 'lucide-react';
 
 const projects: Project[] = [
   {
@@ -8,7 +8,7 @@ const projects: Project[] = [
     title: 'Enterprise GenAI Brain',
     type: 'ai',
     description: 'Architected a secure RAG platform for 45,000+ users. Integrated internal Knowledge with OpenAI to reduce information retrieval time by 30%.',
-    tech: ['LangChain', 'LangGraph', 'Pinecone', 'Weaviate' 'OpenAI', 'React']
+    tech: ['LangChain', 'LangGraph', 'Pinecone', 'Weaviate', 'OpenAI', 'React']
   },
   {
     id: 'devex-accel',
@@ -33,11 +33,11 @@ const ProjectControl: React.FC = () => {
         <div className="mb-12 flex justify-between items-end">
           <div>
             <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-              <FolderGit2 className="text-cyan-500" />
-              Project Schematics
+              <Rocket className="text-cyan-500" />
+              Flagship Initiatives
             </h2>
             <p className="text-slate-400 max-w-xl">
-              Declassified architectural blueprints. Hover to inspect technical implementation details.
+              High-impact technical blueprints driving enterprise value. Hover to inspect implementation details.
             </p>
           </div>
           <div className="hidden md:block text-right font-mono text-xs text-slate-500">
