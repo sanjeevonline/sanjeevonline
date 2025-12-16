@@ -8,21 +8,21 @@ const projects: Project[] = [
     title: 'Enterprise GenAI Brain',
     type: 'ai',
     description: 'Architected a secure RAG platform for 45,000+ users. Integrated internal Knowledge with OpenAI to reduce information retrieval time by 30%.',
-    tech: ['LangChain', 'Pinecone', 'Azure OpenAI', 'React']
+    tech: ['LangChain', 'LangGraph', 'Pinecone', 'Weaviate' 'OpenAI', 'React']
   },
   {
     id: 'devex-accel',
     title: 'AI-First Engineering',
     type: 'process', // Using process for generic/other
-    description: 'Led the adoption of GitHub Copilot and Cursor across 30+ global teams, achieving a measurable 20% increase in developer velocity and code quality.',
-    tech: ['GitHub Copilot', 'Cursor', 'DORA Metrics', 'Governance']
+    description: 'Led the adoption of Agentic code assitants like GitHub Copilot, Cursor and Antigravity across 30+ global teams, achieving a measurable 20% increase in developer velocity and code quality.',
+    tech: ['GitHub Copilot', 'Cursor', 'AntiGravity', 'DORA Metrics', 'Governance']
   },
   {
     id: 'data-mesh',
     title: 'Medallion Data Fabric',
     type: 'data',
     description: 'Designed the "Gold/Silver/Bronze" architecture standard for 180+ products, creating a unified data mesh for real-time analytics and reporting.',
-    tech: ['Databricks', 'Delta Lake', 'Unity Catalog', 'Python']
+    tech: ['Databricks', 'Delta Lake', 'Unity Catalog', 'Python', 'Data Mesh', 'Airflow', 'Iceberg']
   }
 ];
 
