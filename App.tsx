@@ -7,6 +7,7 @@ import ContactFooter from './components/ContactFooter';
 import SkillsMatrix from './components/SkillsMatrix';
 import ProjectControl from './components/ProjectControl';
 import ImpactShowcase from './components/ImpactShowcase';
+import Testimonials from './components/Testimonials';
 
 const App: React.FC = () => {
   return (
@@ -34,6 +35,7 @@ const App: React.FC = () => {
         <SkillsMatrix />
         <ArchitectureMap />
         <ProjectControl />
+        <Testimonials />
         <DeploymentLog />
       </main>
 
