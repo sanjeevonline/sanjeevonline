@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area, LineChart, Line } from 'recharts';
-import { TrendingUp, Users, Wallet, Brain, Target } from 'lucide-react';
+import { TrendingUp, Users, Wallet, Brain, Activity, Target, ChevronDown, CheckCircle2, ArrowRight } from 'lucide-react';
 
+// --- Data ---
 const performanceData = [
   { name: 'Legacy', value: 40, label: 'Efficiency' },
   { name: 'Modern', value: 95, label: 'Efficiency' },
@@ -21,176 +22,291 @@ const aiData = [
   { stage: 'Scale', usage: 95 },
 ];
 
+interface PillarDetail {
+  id: string;
+  title: string;
+  metric: string;
+  subtext: string;
+  icon: React.ElementType;
+  color: string;
+  chart: React.ReactNode;
+  strategy: {
+    heading: string;
+    description: string;
+    points: string[];
+    tags: string[];
+  };
+}
+
 const TelemetryDashboard: React.FC = () => {
-  return (
-    <section className="py-20 bg-slate-950 border-y border-slate-900">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="mb-10">
-          <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-            <TrendingUp className="text-green-500" />
-            Performance Telemetry
-          </h2>
-        </div>
+  const [activeId, setActiveId] = useState<string | null>('ai');
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          
-          {/* Card 1: Portfolio */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg">
-             <div className="absolute -right-10 -top-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl opacity-50"></div>
-             
-             <div className="flex justify-between items-start mb-6">
-              <div>
-                <p className="text-slate-400 text-sm font-medium">Portfolio Value</p>
-                <h3 className="text-3xl font-bold text-white mt-1">$15M</h3>
-              </div>
-              <div className="p-2 bg-slate-800 rounded-lg text-cyan-400">
-                <Wallet size={20} />
-              </div>
-            </div>
+  const pillars: PillarDetail[] = [
+    {
+      id: 'portfolio',
+      title: 'Portfolio & Modernization',
+      metric: '$15M',
+      subtext: 'Value Under Management',
+      icon: Wallet,
+      color: 'text-cyan-400',
+      chart: (
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={performanceData} layout="vertical" barSize={20}>
+              <XAxis type="number" hide />
+              <YAxis dataKey="name" type="category" width={50} tick={{fill: '#64748b', fontSize: 10}} />
+              <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                <Cell fill="#334155" />
+                <Cell fill="#06b6d4" />
+              </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      ),
+      strategy: {
+        heading: 'Legacy Modernization Strategy',
+        description: 'Executing a rigorous de-risking strategy for a massive legacy portfolio while transitioning to modern cloud-native architectures.',
+        points: [
+          'De-risking $15M Portfolio via Strangler Fig pattern',
+          'Legacy Retirement Strategy (Sunset 8+ Core Apps)',
+          'Security & Compliance Hardening',
+          'Managed 180+ Products Lifecycle'
+        ],
+        tags: ['Risk Mgmt', 'Cloud Migration', 'Cost Optimization']
+      }
+    },
+    {
+      id: 'org',
+      title: 'Organizational Scale',
+      metric: '100+',
+      subtext: 'Global Engineering Team',
+      icon: Users,
+      color: 'text-blue-400',
+      chart: (
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={teamData}>
+            <defs>
+              <linearGradient id="colorEng" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
+            <Area type="monotone" dataKey="engineers" stroke="#3b82f6" strokeWidth={2} fill="url(#colorEng)" />
+          </AreaChart>
+        </ResponsiveContainer>
+      ),
+      strategy: {
+        heading: 'Engineering Leadership & Culture',
+        description: 'Building high-performance, distributed engineering teams through culture, autonomy, and clear technical governance.',
+        points: [
+          'Scaled organization from 30 to 110+ engineers',
+          'Implemented Spotify Squad Model for autonomy',
+          'Managed $15M+ Operational Budget',
+          'Strategic Vendor Partnerships (AWS, Azure, Databricks)'
+        ],
+        tags: ['Leadership', 'Scaling', 'Culture']
+      }
+    },
+    {
+      id: 'ai',
+      title: 'AI & Data Innovation',
+      metric: '>50%',
+      subtext: 'GenAI Adoption',
+      icon: Brain,
+      color: 'text-purple-400',
+      chart: (
+        <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={aiData}>
+              <Line type="monotone" dataKey="usage" stroke="#a855f7" strokeWidth={3} dot={{fill: '#a855f7', r: 4}} />
+            </LineChart>
+        </ResponsiveContainer>
+      ),
+      strategy: {
+        heading: 'Enterprise Intelligence Roadmap',
+        description: 'Operationalizing Generative AI and Data Mesh to create a self-service intelligence layer for the enterprise.',
+        points: [
+          'GenAI Adoption Strategy (Copilot/Cursor)',
+          'Data Mesh Implementation (Gold/Silver/Bronze)',
+          'Corporate AI Governance & Ethics',
+          'RAG Platform for 45k+ Users'
+        ],
+        tags: ['GenAI', 'Data Mesh', 'Governance']
+      }
+    },
+    {
+      id: 'ops',
+      title: 'Engineering Excellence',
+      metric: '+50%',
+      subtext: 'Developer Productivity',
+      icon: Activity,
+      color: 'text-green-400',
+      chart: (
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={[{v:20},{v:40},{v:35},{v:50},{v:65},{v:85}]}>
+             <defs>
+              <linearGradient id="colorProd" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#22c55e" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#22c55e" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
+            <Area type="monotone" dataKey="v" stroke="#22c55e" strokeWidth={2} fill="url(#colorProd)" />
+          </AreaChart>
+        </ResponsiveContainer>
+      ),
+      strategy: {
+        heading: 'DevEx & Platform Engineering',
+        description: 'Reducing cognitive load for developers through platform engineering, automation, and superior tooling.',
+        points: [
+          'DORA Metrics Optimization',
+          'Developer Experience (DevEx) Portal',
+          'Technical Debt Governance',
+          'CI/CD Standardization'
+        ],
+        tags: ['DevOps', 'Platform Eng', 'Efficiency']
+      }
+    }
+  ];
 
-            <div className="space-y-4 mt-8">
-              <MetricRow label="Users" value="45k+" />
-              <MetricRow label="Products" value="180+" />
-              <MetricRow label="Teams" value="30+" />
+  const activePillar = pillars.find(p => p.id === activeId);
+
+  // Helper to render the strategy detail content to avoid duplication
+  const renderStrategyContent = (pillar: PillarDetail) => (
+    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 relative overflow-hidden text-left cursor-auto">
+        {/* Background Decor */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+          {/* Left: Strategy Text */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="flex items-center gap-3 mb-2">
+                <div className={`p-2 rounded bg-slate-950 border border-slate-800 ${pillar.color}`}>
+                  <pillar.icon size={24} />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white">
+                  {pillar.strategy.heading}
+                </h3>
             </div>
             
-            <p className="text-xs text-slate-500 mt-6 border-t border-slate-800 pt-4">
-              Strategic oversight of critical tech portfolios.
+            <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+              {pillar.strategy.description}
             </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              {pillar.strategy.points.map((point, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-3 rounded bg-slate-950/50 border border-slate-800/50">
+                  <CheckCircle2 size={18} className="text-cyan-500 mt-0.5 shrink-0" />
+                  <span className="text-sm text-slate-300">{point}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Card 2: Org Scale */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
-            <div className="flex justify-between items-start mb-6">
-              <div>
-                <p className="text-slate-400 text-sm font-medium">Eng. Organization</p>
-                <h3 className="text-3xl font-bold text-white mt-1">100+</h3>
+          {/* Right: Meta & Actions */}
+          <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-800 pt-8 lg:pt-0 lg:pl-12">
+              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Focus Areas</h4>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {pillar.strategy.tags.map(tag => (
+                  <span key={tag} className="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700">
+                    {tag}
+                  </span>
+                ))}
               </div>
-              <div className="p-2 bg-slate-800 rounded-lg text-blue-400">
-                <Users size={20} />
+              
+              <div className="p-4 rounded bg-blue-500/10 border border-blue-500/20">
+                <div className="text-blue-400 text-xs font-mono mb-2">IMPACT VERIFICATION</div>
+                <div className="text-slate-300 text-sm">
+                  Metrics are derived from real-time telemetry across the enterprise portfolio.
+                </div>
               </div>
-            </div>
-            <div className="h-40 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={teamData}>
-                  <defs>
-                    <linearGradient id="colorEng" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.2}/>
-                      <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
-                  <XAxis dataKey="month" tick={{fill: '#64748b', fontSize: 10}} />
-                  <YAxis hide />
-                  <Tooltip contentStyle={{backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc', borderRadius: '8px'}} />
-                  <Area type="monotone" dataKey="engineers" stroke="#3b82f6" fillOpacity={1} fill="url(#colorEng)" />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-             <p className="text-xs text-slate-500 mt-2">Scaled engineers & architects across regions</p>
-          </div>
-
-          {/* Card 3: AI Implementation */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
-             <div className="flex justify-between items-start mb-6">
-              <div>
-                <p className="text-slate-400 text-sm font-medium">AI Implementation</p>
-                <h3 className="text-3xl font-bold text-white mt-1">&gt;50% <span className="text-purple-400 text-base">▲</span></h3>
-              </div>
-              <div className="p-2 bg-slate-800 rounded-lg text-purple-400">
-                <Brain size={20} />
-              </div>
-            </div>
-            <div className="h-40 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                 <LineChart data={aiData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
-                    <XAxis dataKey="stage" tick={{fill: '#64748b', fontSize: 10}} />
-                    <Tooltip contentStyle={{backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc', borderRadius: '8px'}} />
-                    <Line type="monotone" dataKey="usage" stroke="#a855f7" strokeWidth={3} dot={{fill: '#a855f7'}} />
-                 </LineChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-xs text-slate-500 mt-2">Increase in user engagement via Enterprise RAG</p>
-          </div>
-
-          {/* Card 4: Platform Efficiency */}
-          <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
-            <div className="flex justify-between items-start mb-6">
-              <div>
-                <p className="text-slate-400 text-sm font-medium">Dev Productivity</p>
-                <h3 className="text-3xl font-bold text-white mt-1">50% <span className="text-green-400 text-base">▲</span></h3>
-              </div>
-              <div className="p-2 bg-slate-800 rounded-lg text-green-400">
-                <ActivityIcon />
-              </div>
-            </div>
-            <div className="h-40 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={performanceData} layout="vertical">
-                   <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" horizontal={false} />
-                   <XAxis type="number" hide />
-                   <YAxis dataKey="name" type="category" width={50} tick={{fill: '#64748b', fontSize: 10}} />
-                   <Tooltip 
-                    contentStyle={{backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc', borderRadius: '8px'}}
-                    cursor={{fill: 'transparent'}}
-                   />
-                   <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-                      <Cell fill="#334155" />
-                      <Cell fill="#22c55e" />
-                   </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-xs text-slate-500 mt-2">Legacy On-Prem vs. Cloud Migration Velocity</p>
           </div>
         </div>
+    </div>
+  );
 
-        {/* PROMINENT CORE IMPACT PILLARS */}
-        <div className="bg-slate-900/80 border border-slate-800 p-8 rounded-xl shadow-2xl relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -z-10"></div>
-             
-             <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
-                <Target className="text-red-500" size={24} />
-                <h3 className="text-xl font-bold text-white">Core Impact Pillars</h3>
-             </div>
+  return (
+    <section className="py-20 bg-slate-950 border-y border-slate-900" id="strategic-pillars">
+      <div className="max-w-7xl mx-auto px-4">
+        
+        {/* Header */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
+            <Target className="text-cyan-500" />
+            Strategic Pillars & Competencies
+          </h2>
+          <p className="text-slate-400 max-w-2xl">
+            A unified view of performance telemetry and the strategic architecture driving these outcomes. 
+            <span className="text-cyan-400 ml-1">Click on any metrics card to inspect the underlying strategy.</span>
+          </p>
+        </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                <PillarBar label="Executive Leadership & Portfolio Management at Scale" width="98%" color="bg-red-500" />
-                <PillarBar label="AI/ML & Gen AI Implementation & Governance" width="95%" color="bg-purple-500" />
-                <PillarBar label="Cloud & Enterprise-Scale Platform Modernization" width="95%" color="bg-blue-500" />
-                <PillarBar label="Foundational Enterprise Architecture & Technical Governance" width="92%" color="bg-emerald-500" />
-             </div>
+        {/* The Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {pillars.map((pillar) => {
+            const isActive = activeId === pillar.id;
+            const Icon = pillar.icon;
+            
+            return (
+              <React.Fragment key={pillar.id}>
+                <button 
+                  onClick={() => setActiveId(isActive ? null : pillar.id)}
+                  className={`
+                    text-left relative p-6 rounded-xl border transition-all duration-300 group outline-none
+                    ${isActive 
+                      ? 'bg-slate-900 border-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.15)] ring-1 ring-cyan-500/50' 
+                      : 'bg-slate-900/50 border-slate-800 hover:border-slate-600 hover:bg-slate-900'}
+                  `}
+                >
+                  {/* Active Indicator Arrow */}
+                  {isActive && (
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-slate-900 border-r border-b border-cyan-500 transform rotate-45 z-20 hidden md:block"></div>
+                  )}
+
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <p className={`text-sm font-medium transition-colors ${isActive ? 'text-slate-300' : 'text-slate-400'}`}>
+                        {pillar.title}
+                      </p>
+                      <h3 className="text-3xl font-bold text-white mt-1">{pillar.metric}</h3>
+                    </div>
+                    <div className={`p-2 rounded-lg bg-slate-950 border border-slate-800 ${pillar.color}`}>
+                      <Icon size={20} />
+                    </div>
+                  </div>
+
+                  <div className="h-24 w-full mb-2 opacity-80">
+                    {pillar.chart}
+                  </div>
+                  
+                  <p className="text-xs text-slate-500 font-medium flex items-center justify-between">
+                    {pillar.subtext}
+                    {isActive && <ChevronDown size={14} className="text-cyan-500 animate-bounce md:hidden" />}
+                  </p>
+                </button>
+
+                {/* Mobile-Only Accordion Detail Panel */}
+                <div className={`
+                  md:hidden col-span-1 overflow-hidden transition-all duration-500 ease-in-out
+                  ${isActive ? 'max-h-[1200px] opacity-100 mb-6' : 'max-h-0 opacity-0'}
+                `}>
+                   {/* We render content only to ensure height transition works, but practically we want it visible */}
+                   <div className="pt-2">
+                     {renderStrategyContent(pillar)}
+                   </div>
+                </div>
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        {/* Desktop/Tablet Detailed View Panel (Bottom Position) */}
+        <div className={`
+           hidden md:block overflow-hidden transition-all duration-500 ease-in-out
+           ${activeId ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}
+        `}>
+          {activePillar && renderStrategyContent(activePillar)}
         </div>
 
       </div>
     </section>
   );
 };
-
-const MetricRow = ({ label, value }: { label: string, value: string }) => (
-  <div className="flex justify-between items-center">
-    <span className="text-slate-400 text-xs">{label}</span>
-    <span className="text-slate-200 font-mono font-semibold text-sm">{value}</span>
-  </div>
-);
-
-const PillarBar = ({ label, width, color }: any) => (
-  <div>
-    <div className="flex justify-between mb-2">
-      <span className="text-xs font-semibold text-slate-300 tracking-wide">{label}</span>
-    </div>
-    <div className="w-full bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-800">
-      <div className={`h-full rounded-full ${color} shadow-[0_0_10px_rgba(0,0,0,0.5)]`} style={{ width }}></div>
-    </div>
-  </div>
-);
-
-// Simple SVG icon wrapper
-const ActivityIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-  </svg>
-);
 
 export default TelemetryDashboard;

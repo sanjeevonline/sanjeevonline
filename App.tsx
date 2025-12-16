@@ -1,6 +1,5 @@
 import React from 'react';
 import TerminalHero from './components/TerminalHero';
-import ArchitectureMap from './components/ArchitectureMap';
 import TelemetryDashboard from './components/TelemetryDashboard';
 import DeploymentLog from './components/DeploymentLog';
 import ContactFooter from './components/ContactFooter';
@@ -31,25 +30,22 @@ const App: React.FC = () => {
       <main className="pt-16">
         <TerminalHero />
         
-        {/* 1. Quantifiable Impact (The Hook) */}
+        {/* 1. Merged Strategic Pillars & Telemetry (The Hook & Strategy) */}
         <TelemetryDashboard />
         
         {/* 2. Flagship Initiatives (The "What I Built" - GenAI/Data) */}
         <ProjectControl />
         
-        {/* 3. Strategic Thinking (The "Director" View) */}
-        <ArchitectureMap />
-        
-        {/* 4. Business Transformation Details */}
+        {/* 3. Business Transformation Details */}
         <ImpactShowcase />
         
-        {/* 5. Technical Capability Validation */}
+        {/* 4. Technical Capability Validation */}
         <SkillsMatrix />
         
-        {/* 6. Career History */}
+        {/* 5. Career History */}
         <DeploymentLog />
         
-        {/* 7. Social Proof */}
+        {/* 6. Social Proof */}
         <Testimonials />
       </main>
 
