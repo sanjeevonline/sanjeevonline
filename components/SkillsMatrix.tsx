@@ -10,7 +10,7 @@ const skillData: SkillCategory[] = [
       { name: 'Digital Transformation', level: 98 },
       { name: 'Enterprise Arch Leadership', level: 98 },
       { name: 'AI/ML Governance', level: 95 },
-      { name: 'Generative & Agentic AI Adoption', level: 98 },
+      { name: 'Generative & Agentic AI Implementation', level: 98 },
       { name: 'Engineering Excellence', level: 95 },
       { name: 'Developer Experience (DevEx)', level: 92 },
       { name: 'Agile & DevOps Transformation', level: 95 },
@@ -103,7 +103,7 @@ const SkillsMatrix: React.FC = () => {
 
   // Curated list of high-impact skills for the default landing tab
   const coreSkills = [
-    { name: 'Generative & Agentic AI Adoption', level: 98, category: 'lead' },
+    { name: 'Generative & Agentic AI Implementation', level: 98, category: 'lead' },
     { name: 'RAG Systems', level: 98, category: 'ai_stack' },
     { name: 'Enterprise Arch Leadership', level: 98, category: 'lead' },
     { name: 'Data Mesh', level: 95, category: 'data' },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Cloud, Bot, BookOpen, Users, Rocket, TrendingUp, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Zap, Cloud, Bot, BookOpen, Users, Rocket, TrendingUp, ArrowRight } from 'lucide-react';
 
 const ImpactShowcase: React.FC = () => {
   return (
@@ -21,12 +21,12 @@ const ImpactShowcase: React.FC = () => {
           <div className="space-y-6">
             <TechCard 
               icon={<Bot className="text-purple-400" size={24} />}
-              title="GenAI & Agentic AI Adoption"
+              title="GenAI & Agentic AI Implementation"
               stats={[
                 { label: "Productivity Lift", value: "+30%" },
                 { label: "Tooling", value: "Cursor/Copilot" }
               ]}
-              description="Evangelized AI code assistants via workshops and hackathons, accelerating development cycles and adoption."
+              description="Implemented agentic AI workflows and code assistants across the engineering organization, integrating directly with CI/CD pipelines to accelerate delivery."
             />
             
             <TechCard 
@@ -85,19 +85,10 @@ const ImpactShowcase: React.FC = () => {
                description="Built a comprehensive product suite managing the full lifecycle of firm knowledge—from procurement to management and dissemination."
              />
              
-             
           </div>
 
-          {/* Visualization of Business Impact Summary */}
-          <div className="mt-8 p-6 bg-slate-900 rounded-xl border border-slate-800">
-             <h4 className="text-sm font-semibold text-slate-300 mb-4 uppercase tracking-wider">Impact Distribution</h4>
-             <div className="space-y-4">
-                <ProgressBar label="Process Efficiency" width="95%" color="bg-green-500" />
-                <ProgressBar label="User Experience Improvement" width="85%" color="bg-cyan-500" />
-                <ProgressBar label="Strategic Alignment" width="90%" color="bg-purple-500" />
-             </div>
-          </div>
-
+          {/* Note: Core Impact Pillars moved to TelemetryDashboard for higher visibility */}
+          
         </div>
       </div>
     </section>
@@ -144,17 +135,6 @@ const BusinessCard = ({ icon, title, description }: any) => (
       <p className="text-slate-400 text-xs leading-relaxed">
         {description}
       </p>
-    </div>
-  </div>
-);
-
-const ProgressBar = ({ label, width, color }: any) => (
-  <div>
-    <div className="flex justify-between mb-1">
-      <span className="text-[10px] font-mono text-slate-500">{label}</span>
-    </div>
-    <div className="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden">
-      <div className={`h-full rounded-full ${color}`} style={{ width }}></div>
     </div>
   </div>
 );

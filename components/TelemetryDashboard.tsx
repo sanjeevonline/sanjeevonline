@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area, LineChart, Line } from 'recharts';
-import { TrendingUp, Users, Wallet, Brain } from 'lucide-react';
+import { TrendingUp, Users, Wallet, Brain, Target } from 'lucide-react';
 
 const performanceData = [
   { name: 'Legacy', value: 40, label: 'Efficiency' },
@@ -32,11 +32,10 @@ const TelemetryDashboard: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           
-          {/* Card 1: Portfolio (Moved to First) */}
+          {/* Card 1: Portfolio */}
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg">
-             {/* Decorative Background */}
              <div className="absolute -right-10 -top-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl opacity-50"></div>
              
              <div className="flex justify-between items-start mb-6">
@@ -91,11 +90,11 @@ const TelemetryDashboard: React.FC = () => {
              <p className="text-xs text-slate-500 mt-2">Scaled global teams & architects across regions</p>
           </div>
 
-          {/* Card 3: AI Adoption (Moved to Third) */}
+          {/* Card 3: AI Implementation */}
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
              <div className="flex justify-between items-start mb-6">
               <div>
-                <p className="text-slate-400 text-sm font-medium">AI Adoption</p>
+                <p className="text-slate-400 text-sm font-medium">AI Implementation</p>
                 <h3 className="text-3xl font-bold text-white mt-1">&gt;50% <span className="text-purple-400 text-base">▲</span></h3>
               </div>
               <div className="p-2 bg-slate-800 rounded-lg text-purple-400">
@@ -115,11 +114,11 @@ const TelemetryDashboard: React.FC = () => {
             <p className="text-xs text-slate-500 mt-2">Increase in user engagement via Enterprise RAG</p>
           </div>
 
-          {/* Card 4: Platform Efficiency (Renamed) */}
+          {/* Card 4: Platform Efficiency */}
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <p className="text-slate-400 text-sm font-medium">Platform Efficiency</p>
+                <p className="text-slate-400 text-sm font-medium">Dev Productivity</p>
                 <h3 className="text-3xl font-bold text-white mt-1">50% <span className="text-green-400 text-base">▲</span></h3>
               </div>
               <div className="p-2 bg-slate-800 rounded-lg text-green-400">
@@ -145,8 +144,25 @@ const TelemetryDashboard: React.FC = () => {
             </div>
             <p className="text-xs text-slate-500 mt-2">Legacy On-Prem vs. Cloud Migration Velocity</p>
           </div>
-
         </div>
+
+        {/* PROMINENT CORE IMPACT PILLARS */}
+        <div className="bg-slate-900/80 border border-slate-800 p-8 rounded-xl shadow-2xl relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -z-10"></div>
+             
+             <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
+                <Target className="text-red-500" size={24} />
+                <h3 className="text-xl font-bold text-white">Core Impact Pillars</h3>
+             </div>
+
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                <PillarBar label="Executive Leadership & Portfolio Management at Scale" width="98%" color="bg-red-500" />
+                <PillarBar label="AI/ML & Gen AI Implementation & Governance" width="95%" color="bg-purple-500" />
+                <PillarBar label="Cloud & Enterprise-Scale Platform Modernization" width="95%" color="bg-blue-500" />
+                <PillarBar label="Foundational Enterprise Architecture & Technical Governance" width="92%" color="bg-emerald-500" />
+             </div>
+        </div>
+
       </div>
     </section>
   );
@@ -156,6 +172,17 @@ const MetricRow = ({ label, value }: { label: string, value: string }) => (
   <div className="flex justify-between items-center">
     <span className="text-slate-400 text-xs">{label}</span>
     <span className="text-slate-200 font-mono font-semibold text-sm">{value}</span>
+  </div>
+);
+
+const PillarBar = ({ label, width, color }: any) => (
+  <div>
+    <div className="flex justify-between mb-2">
+      <span className="text-xs font-semibold text-slate-300 tracking-wide">{label}</span>
+    </div>
+    <div className="w-full bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-800">
+      <div className={`h-full rounded-full ${color} shadow-[0_0_10px_rgba(0,0,0,0.5)]`} style={{ width }}></div>
+    </div>
   </div>
 );
 

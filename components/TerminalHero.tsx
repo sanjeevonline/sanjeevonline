@@ -56,7 +56,7 @@ const TerminalHero: React.FC = () => {
           </h1>
           
           <p className="text-lg text-slate-400 leading-relaxed">
-            Leading the future of enterprise intelligence. Transforming organizations through <span className="text-slate-200 font-medium">Strategic Modernization</span>, <span className="text-slate-200 font-medium">AI Adoption</span>, and <span className="text-slate-200 font-medium">Operational Excellence</span>.
+            Leading the future of enterprise intelligence. Transforming organizations through <span className="text-slate-200 font-medium">Strategic Modernization</span>, <span className="text-slate-200 font-medium">AI Implementation</span>, and <span className="text-slate-200 font-medium">Operational Excellence</span>.
           </p>
 
           <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-400">
