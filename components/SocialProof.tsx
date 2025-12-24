@@ -54,52 +54,51 @@ const recommendations = [
 
 const SocialProof: React.FC = () => {
   return (
-    <section className="py-20 px-4 max-w-7xl mx-auto border-t border-slate-900 bg-slate-950">
+    <section className="py-20 px-4 max-w-7xl mx-auto border-t border-slate-100 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="mb-12 flex flex-col items-center text-center">
-        <div className="flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono tracking-wider uppercase">
+        <div className="flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-blue-500/5 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs font-mono tracking-wider uppercase">
           <ShieldCheck size={14} />
           Verified Logs
         </div>
-        <h2 className="text-3xl font-bold text-white flex items-center gap-3">
-          <UserCheck className="text-cyan-400" />
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+          <UserCheck className="text-cyan-600 dark:text-cyan-400" />
           Peer Endorsements
         </h2>
-        <p className="text-slate-400 mt-2 max-w-2xl">
+        <p className="text-slate-600 dark:text-slate-400 mt-2 max-w-2xl">
           Validated feedback from executive leadership, peers, and engineering teams.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendations.map((rec) => (
-          <div key={rec.id} className="bg-slate-900/50 border border-slate-800 p-6 rounded-xl relative hover:border-slate-600 transition-all duration-300 group flex flex-col justify-between">
-            {/* Quote Icon Background */}
+          <div key={rec.id} className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-6 rounded-xl relative hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-300 group flex flex-col justify-between shadow-sm">
             <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <MessageSquareQuote size={40} className="text-cyan-500" />
+              <MessageSquareQuote size={40} className="text-cyan-600 dark:text-cyan-500" />
             </div>
 
             <div className="mb-6 relative z-10">
-              <p className="text-slate-300 text-sm leading-relaxed italic">
+              <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
                 "{rec.text}"
               </p>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-slate-800/50">
+            <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800/50">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center border border-slate-700 text-slate-400 font-bold text-xs">
+                <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-400 font-bold text-xs shadow-sm">
                   {rec.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold text-sm">{rec.name}</h4>
-                  <p className="text-slate-500 text-xs">{rec.role}, {rec.company}</p>
+                  <h4 className="text-slate-900 dark:text-white font-semibold text-sm">{rec.name}</h4>
+                  <p className="text-slate-500 text-xs font-medium">{rec.role}, {rec.company}</p>
                 </div>
               </div>
               
-              <div className="text-blue-500 opacity-50 group-hover:opacity-100 transition-opacity">
+              <div className="text-blue-600 dark:text-blue-500 opacity-50 group-hover:opacity-100 transition-opacity">
                 <Linkedin size={16} />
               </div>
             </div>
             
-            <div className="mt-2 text-[10px] text-slate-600 font-mono text-right">
+            <div className="mt-2 text-[10px] text-slate-400 dark:text-slate-600 font-mono text-right uppercase tracking-tight">
               TIMESTAMP: {rec.date}
             </div>
           </div>
@@ -111,7 +110,7 @@ const SocialProof: React.FC = () => {
           href="https://www.linkedin.com/in/sanjeevsprofile/details/recommendations/?detailScreenTabIndex=0" 
           target="_blank" 
           rel="noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors border-b border-transparent hover:border-slate-500 pb-0.5"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors border-b border-transparent hover:border-slate-400 dark:hover:border-slate-500 pb-0.5"
         >
           <Linkedin size={14} />
           View all recommendations on LinkedIn

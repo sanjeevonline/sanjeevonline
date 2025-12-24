@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area, LineChart, Line } from 'recharts';
 import { TrendingUp, Users, Wallet, Brain, Activity, Target, ChevronDown, CheckCircle2, ArrowRight } from 'lucide-react';
 
-// --- Data ---
 const performanceData = [
   { name: 'Legacy', value: 40, label: 'Efficiency' },
   { name: 'Modern', value: 95, label: 'Efficiency' },
@@ -48,14 +47,14 @@ const StrategicPillars: React.FC = () => {
       metric: '$15M',
       subtext: 'Value Under Management',
       icon: Wallet,
-      color: 'text-cyan-400',
+      color: 'text-cyan-600 dark:text-cyan-400',
       chart: (
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={performanceData} layout="vertical" barSize={20}>
               <XAxis type="number" hide />
               <YAxis dataKey="name" type="category" width={50} tick={{fill: '#64748b', fontSize: 10}} />
               <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-                <Cell fill="#334155" />
+                <Cell fill="#cbd5e1" />
                 <Cell fill="#06b6d4" />
               </Bar>
           </BarChart>
@@ -79,7 +78,7 @@ const StrategicPillars: React.FC = () => {
       metric: '100+',
       subtext: 'Global Engineering Team',
       icon: Users,
-      color: 'text-blue-400',
+      color: 'text-blue-600 dark:text-blue-400',
       chart: (
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={teamData}>
@@ -111,7 +110,7 @@ const StrategicPillars: React.FC = () => {
       metric: '>50%',
       subtext: 'GenAI Adoption',
       icon: Brain,
-      color: 'text-purple-400',
+      color: 'text-purple-600 dark:text-purple-400',
       chart: (
         <ResponsiveContainer width="100%" height="100%">
             <LineChart data={aiData}>
@@ -137,7 +136,7 @@ const StrategicPillars: React.FC = () => {
       metric: '+50%',
       subtext: 'Developer Productivity',
       icon: Activity,
-      color: 'text-green-400',
+      color: 'text-green-600 dark:text-green-400',
       chart: (
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={[{v:20},{v:40},{v:35},{v:50},{v:65},{v:85}]}>
@@ -167,52 +166,48 @@ const StrategicPillars: React.FC = () => {
 
   const activePillar = pillars.find(p => p.id === activeId);
 
-  // Helper to render the strategy detail content to avoid duplication
   const renderStrategyContent = (pillar: PillarDetail) => (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 relative overflow-hidden text-left cursor-auto">
-        {/* Background Decor */}
+    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-8 relative overflow-hidden text-left shadow-sm transition-colors duration-300">
         <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
-          {/* Left: Strategy Text */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-3 mb-2">
-                <div className={`p-2 rounded bg-slate-950 border border-slate-800 ${pillar.color}`}>
+                <div className={`p-2 rounded bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 ${pillar.color}`}>
                   <pillar.icon size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
                   {pillar.strategy.heading}
                 </h3>
             </div>
             
-            <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg leading-relaxed">
               {pillar.strategy.description}
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               {pillar.strategy.points.map((point, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3 rounded bg-slate-950/50 border border-slate-800/50">
-                  <CheckCircle2 size={18} className="text-cyan-500 mt-0.5 shrink-0" />
-                  <span className="text-sm text-slate-300">{point}</span>
+                <div key={idx} className="flex items-start gap-3 p-3 rounded bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800/50">
+                  <CheckCircle2 size={18} className="text-cyan-600 dark:text-cyan-500 mt-0.5 shrink-0" />
+                  <span className="text-sm text-slate-700 dark:text-slate-300">{point}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Meta & Actions */}
-          <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-800 pt-8 lg:pt-0 lg:pl-12">
-              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Focus Areas</h4>
+          <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-slate-800 pt-8 lg:pt-0 lg:pl-12">
+              <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Focus Areas</h4>
               <div className="flex flex-wrap gap-2 mb-8">
                 {pillar.strategy.tags.map(tag => (
-                  <span key={tag} className="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700">
+                  <span key={tag} className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium border border-slate-200 dark:border-slate-700">
                     {tag}
                   </span>
                 ))}
               </div>
               
-              <div className="p-4 rounded bg-blue-500/10 border border-blue-500/20">
-                <div className="text-blue-400 text-xs font-mono mb-2">IMPACT VERIFICATION</div>
-                <div className="text-slate-300 text-sm">
+              <div className="p-4 rounded bg-blue-500/5 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
+                <div className="text-blue-600 dark:text-blue-400 text-xs font-mono mb-2 uppercase tracking-tight">Impact Verification</div>
+                <div className="text-slate-600 dark:text-slate-300 text-sm">
                   Metrics are derived from real-time telemetry across the enterprise portfolio.
                 </div>
               </div>
@@ -222,22 +217,20 @@ const StrategicPillars: React.FC = () => {
   );
 
   return (
-    <section className="py-20 bg-slate-950 border-y border-slate-900" id="strategic-pillars">
+    <section className="py-20 bg-slate-50 dark:bg-slate-950 border-y border-slate-200 dark:border-slate-900 transition-colors duration-300" id="strategic-pillars">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* Header */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-            <Target className="text-cyan-500" />
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+            <Target className="text-cyan-600 dark:text-cyan-500" />
             Strategic Pillars & Competencies
           </h2>
-          <p className="text-slate-400 max-w-2xl">
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
             A unified view of performance telemetry and the strategic architecture driving these outcomes. 
-            <span className="text-cyan-400 ml-1">Click on any metrics card to inspect the underlying strategy.</span>
+            <span className="text-cyan-600 dark:text-cyan-400 ml-1 font-medium">Click on any metrics card to inspect the underlying strategy.</span>
           </p>
         </div>
 
-        {/* The Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {pillars.map((pillar) => {
             const isActive = activeId === pillar.id;
@@ -250,23 +243,22 @@ const StrategicPillars: React.FC = () => {
                   className={`
                     text-left relative p-6 rounded-xl border transition-all duration-300 group outline-none
                     ${isActive 
-                      ? 'bg-slate-900 border-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.15)] ring-1 ring-cyan-500/50' 
-                      : 'bg-slate-900/50 border-slate-800 hover:border-slate-600 hover:bg-slate-900'}
+                      ? 'bg-white dark:bg-slate-900 border-cyan-500 shadow-[0_4px_20px_rgba(6,182,212,0.1)] dark:shadow-[0_0_20px_rgba(6,182,212,0.15)] ring-1 ring-cyan-500/50' 
+                      : 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-900'}
                   `}
                 >
-                  {/* Active Indicator Arrow */}
                   {isActive && (
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-slate-900 border-r border-b border-cyan-500 transform rotate-45 z-20 hidden md:block"></div>
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-white dark:bg-slate-900 border-r border-b border-slate-200 dark:border-cyan-500 transform rotate-45 z-20 hidden md:block"></div>
                   )}
 
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <p className={`text-sm font-medium transition-colors ${isActive ? 'text-slate-300' : 'text-slate-400'}`}>
+                      <p className={`text-sm font-medium transition-colors ${isActive ? 'text-slate-700 dark:text-slate-300' : 'text-slate-500 dark:text-slate-400'}`}>
                         {pillar.title}
                       </p>
-                      <h3 className="text-3xl font-bold text-white mt-1">{pillar.metric}</h3>
+                      <h3 className="text-3xl font-bold text-slate-900 dark:text-white mt-1">{pillar.metric}</h3>
                     </div>
-                    <div className={`p-2 rounded-lg bg-slate-950 border border-slate-800 ${pillar.color}`}>
+                    <div className={`p-2 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 ${pillar.color}`}>
                       <Icon size={20} />
                     </div>
                   </div>
@@ -281,12 +273,10 @@ const StrategicPillars: React.FC = () => {
                   </p>
                 </button>
 
-                {/* Mobile-Only Accordion Detail Panel */}
                 <div className={`
                   md:hidden col-span-1 overflow-hidden transition-all duration-500 ease-in-out
                   ${isActive ? 'max-h-[1200px] opacity-100 mb-6' : 'max-h-0 opacity-0'}
                 `}>
-                   {/* We render content only to ensure height transition works, but practically we want it visible */}
                    <div className="pt-2">
                      {renderStrategyContent(pillar)}
                    </div>
@@ -296,7 +286,6 @@ const StrategicPillars: React.FC = () => {
           })}
         </div>
 
-        {/* Desktop/Tablet Detailed View Panel (Bottom Position) */}
         <div className={`
            hidden md:block overflow-hidden transition-all duration-500 ease-in-out
            ${activeId ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}
