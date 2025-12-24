@@ -55,10 +55,10 @@ const App: React.FC = () => {
                 href="https://techradar.sanjeevonline.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[10px] font-mono font-bold tracking-widest text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors uppercase py-1 border-b border-transparent hover:border-cyan-500/50"
+                className="flex items-center gap-2 text-[10px] font-mono font-bold tracking-widest text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-all uppercase py-1 border-b-2 border-cyan-500/30 hover:border-cyan-500 group"
               >
-                <Radar size={14} />
-                TECH_RADAR
+                <Radar size={14} className="group-hover:animate-spin-slow transition-all duration-700" />
+                <span className="drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]">TECH_RADAR</span>
               </a>
             </div>
           </div>
@@ -69,15 +69,15 @@ const App: React.FC = () => {
                 href="https://techradar.sanjeevonline.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="md:hidden p-2 rounded-lg text-slate-500 hover:text-cyan-600 dark:hover:text-cyan-400"
+                className="md:hidden p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/10 transition-colors"
                 aria-label="Tech Radar"
              >
-               <Radar size={18} />
+               <Radar size={18} className="animate-pulse" />
              </a>
 
              <button 
                 onClick={toggleTheme}
-                className="p-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all"
+                className="p-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all shadow-sm"
                 aria-label="Toggle theme"
              >
                {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -101,6 +101,16 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+
+      <style>{`
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+          animation: spin-slow 8s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };
