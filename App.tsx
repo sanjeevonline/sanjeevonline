@@ -10,19 +10,18 @@ import BusinessImpact from './components/BusinessImpact';
 import SocialProof from './components/SocialProof';
 
 const App: React.FC = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Initial theme setup
+    // Initial theme setup - default to light unless specifically saved as dark
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (savedTheme === 'light') {
-      setIsDark(false);
-      document.documentElement.classList.remove('dark');
-    } else if (savedTheme === 'dark' || prefersDark) {
+    if (savedTheme === 'dark') {
       setIsDark(true);
       document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
