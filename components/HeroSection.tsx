@@ -74,16 +74,6 @@ const HeroSection: React.FC = () => {
                 AI Transformation
               </div>
             </div>
-
-            <a 
-              href="https://github.com/sanjeevonline/" 
-              target="_blank" 
-              rel="noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-mono text-sm font-bold hover:bg-slate-800 dark:hover:bg-white transition-all shadow-lg hover:shadow-cyan-500/20"
-            >
-              <Github size={18} />
-              EXPLORE_GITHUB_REPOS
-            </a>
           </div>
         </div>
       </div>
