@@ -1,100 +1,75 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Cpu, Cloud, Database, Lock, LayoutGrid, Brain, Terminal, Bot, Star } from 'lucide-react';
+import { Cpu, Cloud, Database, Lock, LayoutGrid, Brain, Terminal, Bot, Star, Shield, Layout } from 'lucide-react';
 import { SkillCategory } from '../types';
 
 const skillData: SkillCategory[] = [
   {
-    id: 'lead',
-    label: 'Executive Leadership',
+    id: 'leadership',
+    label: 'Enterprise Leadership & Operating Model',
     skills: [
-      { name: 'Strategic Visioning & Execution', level: 97 },
-      { name: 'Digital Transformation', level: 98 },
-      { name: 'Enterprise Arch Leadership', level: 98 },
-      { name: 'AI/ML Governance', level: 95 },
-      { name: 'Generative & Agentic AI Implementation', level: 98 },
-      { name: 'Engineering Excellence', level: 95 },
-      { name: 'Developer Experience (DevEx)', level: 92 },
-      { name: 'Agile & DevOps Transformation', level: 95 },
-      { name: 'Portfolio Management ($15M+)', level: 95 },
-      { name: 'Organizational Design', level: 90 },
-      { name: 'Vendor/Partner Management', level: 92 },
-      { name: 'Technical Governance', level: 95 },
-      { name: 'Architecture Standards', level: 98 },
-      { name: 'Risk Mitigation', level: 90 },
-      { name: 'Product Management', level: 85 }
+      { name: 'Managers-of-Managers Leadership', level: 98 },
+      { name: 'Strategic Portfolio Management ($20M+)', level: 97 },
+      { name: 'Product & Platform Operating Models', level: 95 },
+      { name: 'Executive Hiring & Talent Pipeline', level: 92 },
+      { name: 'Risk Management & Regulatory Readiness', level: 90 },
+      { name: 'Vendor & Ecosystem Strategy', level: 94 }
     ]
   },
   {
-    id: 'ai_stack',
-    label: 'AI/ML, RAG & Agentic Systems',
+    id: 'ai_strategy',
+    label: 'AI, ML & Platform Strategy',
     skills: [
-      { name: 'RAG Systems', level: 98 },
-      { name: 'Agentic AI', level: 95 },
-      { name: 'Multimodal LLM', level: 92 },
-      { name: 'LangChain / LangGraph', level: 95 },
-      { name: 'LlamaIndex', level: 92 },
-      { name: 'LLM FineTuning (LoRA/QLoRA)', level: 88 },
-      { name: 'TensorFlow / PyTorch', level: 85 },
-      { name: 'Vector DBs (Weaviate/Pinecone)', level: 95 },
-      { name: 'MLOps & Pipelines', level: 90 },
-      { name: 'Cursor / Copilot', level: 98 },
-      { name: 'Antigravity', level: 85 },
-      { name: 'Model Context Protocol (MCP)', level: 90 }
+      { name: 'Generative & Agentic AI Platforms', level: 98 },
+      { name: 'AI Governance & Safety Standards', level: 96 },
+      { name: 'Enterprise RAG Architectures', level: 98 },
+      { name: 'LLM Fine-Tuning & Lifecycle Mgmt', level: 92 },
+      { name: 'MLOps / LLMOps Operating Models', level: 90 },
+      { name: 'Semantic & Vector Systems Strategy', level: 95 }
     ]
   },
   {
-    id: 'cloud',
-    label: 'Cloud & Enterprise Infra',
+    id: 'cloud_infra',
+    label: 'Cloud, Infrastructure & Reliability',
     skills: [
-      { name: 'Azure / AWS / GCP', level: 95 },
-      { name: 'Hybrid Cloud Architecture', level: 95 },
-      { name: 'Kubernetes & Docker', level: 92 },
-      { name: 'Serverless / PaaS / IaaS', level: 95 },
-      { name: 'DevSecOps', level: 92 },
-      { name: 'IaC (Terraform/ARM/CF)', level: 95 },
-      { name: 'Networking (ExpressRoute/MPLS)', level: 88 },
-      { name: 'HA / DR / BCP', level: 90 },
-      { name: 'Observability & Telemetry', level: 92 }
+      { name: 'Hybrid Cloud Platform Strategy', level: 98 },
+      { name: 'Modernization & Legacy Retirement', level: 95 },
+      { name: 'Availability & Resilience Engineering', level: 94 },
+      { name: 'Infrastructure-as-Code Models', level: 95 },
+      { name: 'Business Continuity & Disaster Recovery', level: 90 },
+      { name: 'Enterprise Observability', level: 92 }
     ]
   },
   {
-    id: 'data',
-    label: 'Data & Analytics Arch',
+    id: 'data_analytics',
+    label: 'Data & Analytics Platforms',
     skills: [
-      { name: 'Delta Lake / Lakehouse', level: 95 },
-      { name: 'Data Mesh', level: 95 },
-      { name: 'MDM (Master Data Mgmt)', level: 90 },
-      { name: 'Apache Iceberg', level: 88 },
-      { name: 'Spark / Taxonomy / Ontology', level: 90 },
-      { name: 'Snowflake', level: 92 },
-      { name: 'Kafka / Event Streaming', level: 88 },
-      { name: 'Graph DB (Neo4J)', level: 85 },
-      { name: 'Cassandra / NoSQL', level: 88 },
-      { name: 'Tableau', level: 85 }
+      { name: 'Enterprise Data Strategy', level: 97 },
+      { name: 'Lakehouse & Data Mesh Architecture', level: 98 },
+      { name: 'Data Governance & Master Data Mgmt', level: 90 },
+      { name: 'Streaming & Event-Driven Platforms', level: 94 },
+      { name: 'AI-Ready Data Pipelines', level: 95 }
     ]
   },
   {
-    id: 'saas',
-    label: 'Enterprise Apps & SaaS',
+    id: 'governance',
+    label: 'Architecture & Governance',
     skills: [
-      { name: 'Salesforce CRM', level: 90 },
-      { name: 'SAP Integration', level: 85 },
-      { name: 'ServiceNow', level: 88 },
-      { name: 'Oracle Ecosystem', level: 85 },
-      { name: 'Alfresco / SiteCore', level: 80 }
+      { name: 'Enterprise Architecture Leadership', level: 98 },
+      { name: 'ADR & 4+1 Decision Frameworks', level: 97 },
+      { name: 'Platform Interoperability Standards', level: 95 },
+      { name: 'Tech Debt Reduction Roadmaps', level: 96 },
+      { name: 'Platform Guardrails & Standards', level: 98 }
     ]
   },
   {
-    id: 'eng',
-    label: 'Software Engineering',
+    id: 'engineering',
+    label: 'Software & Platform Engineering',
     skills: [
-      { name: 'API Architecture', level: 95 },
-      { name: 'CI/CD Pipelines', level: 95 },
-      { name: 'Java / J2EE', level: 90 },
-      { name: 'Python', level: 95 },
-      { name: 'SQL / Database Design', level: 92 },
-      { name: 'React / Angular', level: 88 },
-      { name: 'Docker / Containerization', level: 92 }
+      { name: 'Internal Developer Platforms (IDP)', level: 95 },
+      { name: 'API & Service Platform Strategy', level: 96 },
+      { name: 'Developer Experience (DevEx)', level: 98 },
+      { name: 'CI/CD & Engineering Excellence', level: 97 },
+      { name: 'Full-Stack Technical Oversight', level: 95 }
     ]
   }
 ];
@@ -107,17 +82,11 @@ const TechnicalExpertise: React.FC = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setAnimate(true);
-        }
+        if (entries[0].isIntersecting) setAnimate(true);
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -128,16 +97,14 @@ const TechnicalExpertise: React.FC = () => {
   }, [activeCategory]);
 
   const coreSkills = [
-    { name: 'Generative & Agentic AI Implementation', level: 98, category: 'lead' },
-    { name: 'RAG Systems', level: 98, category: 'ai_stack' },
-    { name: 'Enterprise Arch Leadership', level: 98, category: 'lead' },
-    { name: 'Data Mesh', level: 95, category: 'data' },
-    { name: 'Hybrid Cloud Architecture', level: 95, category: 'cloud' },
-    { name: 'AI/ML Governance', level: 95, category: 'lead' },
-    { name: 'Engineering Excellence', level: 95, category: 'lead' },
-    { name: 'Cursor / Copilot', level: 98, category: 'ai_stack' },
-    { name: 'API Architecture', level: 95, category: 'eng' },
-    { name: 'Kubernetes & Docker', level: 92, category: 'cloud' }
+    { name: 'Managers-of-Managers Leadership', level: 98, category: 'leadership' },
+    { name: 'Strategic Portfolio Management ($20M+)', level: 97, category: 'leadership' },
+    { name: 'Generative & Agentic AI Platforms', level: 98, category: 'ai_strategy' },
+    { name: 'Lakehouse & Data Mesh Architecture', level: 98, category: 'data_analytics' },
+    { name: 'Enterprise Architecture Leadership', level: 98, category: 'governance' },
+    { name: 'Developer Experience (DevEx)', level: 98, category: 'engineering' },
+    { name: 'Hybrid Cloud Platform Strategy', level: 98, category: 'cloud_infra' },
+    { name: 'ADR & 4+1 Decision Frameworks', level: 97, category: 'governance' }
   ];
 
   const filteredSkills = activeCategory === 'all' 
@@ -148,84 +115,70 @@ const TechnicalExpertise: React.FC = () => {
 
   const getCategoryColor = (catId: string) => {
     switch (catId) {
-      case 'lead': return 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]';
-      case 'ai_stack': return 'bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.3)]';
-      case 'cloud': return 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.3)]';
-      case 'data': return 'bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.3)]';
-      case 'saas': return 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.3)]';
-      case 'eng': return 'bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.3)]';
+      case 'leadership': return 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]';
+      case 'ai_strategy': return 'bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.3)]';
+      case 'cloud_infra': return 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.3)]';
+      case 'data_analytics': return 'bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.3)]';
+      case 'governance': return 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.3)]';
+      case 'engineering': return 'bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.3)]';
       default: return 'bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)]';
     }
   };
 
   const getCategoryLabel = (catId: string) => {
     switch (catId) {
-      case 'lead': return 'EXECUTIVE';
-      case 'ai_stack': return 'AI_STACK';
-      case 'cloud': return 'CLOUD_INFRA';
-      case 'data': return 'DATA_ARCH';
-      case 'saas': return 'ENT_APPS';
-      case 'eng': return 'SOFTWARE';
+      case 'leadership': return 'EXECUTIVE';
+      case 'ai_strategy': return 'AI_STRATEGY';
+      case 'cloud_infra': return 'CLOUD_PLATFORM';
+      case 'data_analytics': return 'DATA_SYSTEMS';
+      case 'governance': return 'GOVERNANCE';
+      case 'engineering': return 'STRATEGIC_ENG';
       default: return 'SKILL';
     }
   };
 
-  const getLabelColor = (catId: string) => {
-    switch (catId) {
-       case 'lead': return 'text-red-500 dark:text-red-400';
-       case 'ai_stack': return 'text-purple-500 dark:text-purple-400';
-       case 'cloud': return 'text-blue-500 dark:text-blue-400';
-       case 'data': return 'text-yellow-600 dark:text-yellow-400';
-       case 'saas': return 'text-green-600 dark:text-green-400';
-       case 'eng': return 'text-orange-500 dark:text-orange-400';
-       default: return 'text-cyan-600 dark:text-cyan-400';
-    }
-  }
-
   return (
-    <section ref={sectionRef} className="py-20 px-4 max-w-7xl mx-auto transition-colors duration-300" id="technical-expertise">
-      <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <section ref={sectionRef} className="py-10 md:py-16 px-4 max-w-7xl mx-auto transition-colors duration-300" id="technical-expertise">
+      <div className="mb-8 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
             <Cpu className="text-cyan-600 dark:text-cyan-400" />
-            Executive & Technical Skill Matrix
+            Executive & Technical Expertise
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
-            Bridging executive strategy with deep hands-on engineering. Interactive view of core technical proficiencies.
+            Bridging operational leadership with deep technical foresight. Validated through enterprise-scale delivery.
           </p>
         </div>
 
-        {/* Gamified Stat Box */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl hidden lg:block min-w-[240px] shadow-sm">
            <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase mb-3 tracking-widest font-bold">
              <Star size={10} className="text-yellow-500" />
-             System Status: Optimized
+             Strategic Readiness
            </div>
            <div className="space-y-2">
              <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Arch Proficiency</span>
-                <span className="text-green-600 dark:text-green-400 font-bold">S-RANK</span>
+                <span className="text-slate-500 dark:text-slate-400">Scale Depth</span>
+                <span className="text-green-600 dark:text-green-400 font-bold">180+ PROD</span>
              </div>
              <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Leadership Scale</span>
-                <span className="text-cyan-600 dark:text-cyan-400 font-bold">45K+ USERS</span>
+                <span className="text-slate-500 dark:text-slate-400">Governance Lock</span>
+                <span className="text-cyan-600 dark:text-cyan-400 font-bold">ADR/4+1</span>
              </div>
              <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">AI Readiness</span>
-                <span className="text-purple-600 dark:text-purple-400 font-bold">AGENTIC_READY</span>
+                <span className="text-slate-500 dark:text-slate-400">Portfolio</span>
+                <span className="text-purple-600 dark:text-purple-400 font-bold">$20M+ ANNUAL</span>
              </div>
            </div>
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-10 p-2 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 w-fit backdrop-blur-sm shadow-sm">
-        <FilterBtn active={activeCategory === 'core'} onClick={() => setActiveCategory('core')} icon={<Star size={14} className={activeCategory === 'core' ? 'text-yellow-500' : ''} />} label="CORE_MATRIX" />
-        <FilterBtn active={activeCategory === 'lead'} onClick={() => setActiveCategory('lead')} icon={<Lock size={14} />} label="LEADERSHIP" />
-        <FilterBtn active={activeCategory === 'ai_stack'} onClick={() => setActiveCategory('ai_stack')} icon={<Bot size={14} />} label="AI_ENGINEERING" />
-        <FilterBtn active={activeCategory === 'eng'} onClick={() => setActiveCategory('eng')} icon={<Terminal size={14} />} label="ENGINEERING" />
-        <FilterBtn active={activeCategory === 'cloud'} onClick={() => setActiveCategory('cloud')} icon={<Cloud size={14} />} label="CLOUD_INFRA" />
-        <FilterBtn active={activeCategory === 'data'} onClick={() => setActiveCategory('data')} icon={<Database size={14} />} label="DATA_ARCH" />
-        <FilterBtn active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} icon={<LayoutGrid size={14} />} label="TOTAL_MAP" />
+      <div className="flex flex-wrap gap-2 mb-8 md:mb-10 p-2 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 w-fit backdrop-blur-sm shadow-sm">
+        <FilterBtn active={activeCategory === 'core'} onClick={() => setActiveCategory('core')} icon={<Star size={14} />} label="CORE_EXECUTIVE" />
+        <FilterBtn active={activeCategory === 'leadership'} onClick={() => setActiveCategory('leadership')} icon={<Lock size={14} />} label="LEADERSHIP" />
+        <FilterBtn active={activeCategory === 'ai_strategy'} onClick={() => setActiveCategory('ai_strategy')} icon={<Bot size={14} />} label="AI_STRATEGY" />
+        <FilterBtn active={activeCategory === 'governance'} onClick={() => setActiveCategory('governance')} icon={<Shield size={14} />} label="GOVERNANCE" />
+        <FilterBtn active={activeCategory === 'cloud_infra'} onClick={() => setActiveCategory('cloud_infra')} icon={<Cloud size={14} />} label="CLOUD_INFRA" />
+        <FilterBtn active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} icon={<LayoutGrid size={14} />} label="ALL_DOMAINS" />
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -241,14 +194,14 @@ const TechnicalExpertise: React.FC = () => {
                 <div className={`w-1.5 h-1.5 rounded-full shrink-0 ml-2 animate-pulse ${getCategoryColor(skill.category)}`}></div>
               </div>
               
-              <div className="w-full bg-slate-100 dark:bg-slate-950 h-2 rounded-full overflow-hidden mt-4 border border-slate-200 dark:border-slate-800/50">
-                <div className={`h-full rounded-full transition-all duration-1000 ease-out group-hover:brightness-110 ${getCategoryColor(skill.category)}`} style={{ width: animate ? `${skill.level}%` : '0%' }}></div>
+              <div className="w-full bg-slate-100 dark:bg-slate-950 h-1.5 rounded-full overflow-hidden mt-4">
+                <div className={`h-full rounded-full transition-all duration-1000 ease-out ${getCategoryColor(skill.category)}`} style={{ width: animate ? `${skill.level}%` : '0%' }}></div>
               </div>
             </div>
 
             <div className="relative z-10 flex justify-between items-center mt-5">
-                <span className="text-[9px] text-slate-500 dark:text-slate-500 font-mono font-bold tracking-tighter">XP_LVL: {skill.level}</span>
-                <span className={`text-[9px] font-mono font-bold tracking-tighter uppercase px-1.5 py-0.5 bg-slate-50 dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800/50 ${getLabelColor(skill.category)}`}>
+                <span className="text-[9px] text-slate-500 dark:text-slate-500 font-mono font-bold tracking-tighter">LVL: {skill.level}</span>
+                <span className={`text-[9px] font-mono font-bold tracking-tighter uppercase px-1.5 py-0.5 bg-slate-50 dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800/50`}>
                     {getCategoryLabel(skill.category)}
                 </span>
             </div>

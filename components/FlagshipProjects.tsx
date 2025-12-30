@@ -28,9 +28,9 @@ const projects: Project[] = [
 
 const FlagshipProjects: React.FC = () => {
   return (
-    <section className="py-20 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-900 transition-colors duration-300">
+    <section className="py-10 md:py-16 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
+        <div className="mb-8 md:mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
           <div>
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
               <Rocket className="text-cyan-600 dark:text-cyan-500" />

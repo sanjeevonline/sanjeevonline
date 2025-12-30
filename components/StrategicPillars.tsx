@@ -3,22 +3,20 @@ import { BarChart, Bar, XAxis, YAxis, Cell, AreaChart, Area, LineChart, Line, Re
 import { Users, Wallet, Brain, Activity, Target, ChevronDown, CheckCircle2 } from 'lucide-react';
 
 const performanceData = [
-  { name: 'Legacy', value: 40, label: 'Efficiency' },
-  { name: 'Modern', value: 95, label: 'Efficiency' },
+  { name: 'Legacy', value: 30, label: 'Resilience' },
+  { name: 'Target', value: 98, label: 'Resilience' },
 ];
 
 const teamData = [
   { month: 'Start', engineers: 30 },
-  { month: 'Y1', engineers: 55 },
-  { month: 'Y2', engineers: 80 },
-  { month: 'Current', engineers: 110 },
+  { month: 'Scaling', engineers: 65 },
+  { month: 'Global', engineers: 110 },
 ];
 
 const aiData = [
-  { stage: 'Pilot', usage: 20 },
-  { stage: 'Beta', usage: 45 },
-  { stage: 'Launch', usage: 65 },
-  { stage: 'Scale', usage: 95 },
+  { stage: 'Pilot', usage: 10 },
+  { stage: 'Beta', usage: 40 },
+  { stage: 'Scale', usage: 98 },
 ];
 
 interface PillarDetail {
@@ -43,13 +41,13 @@ const StrategicPillars: React.FC = () => {
   const pillars: PillarDetail[] = [
     {
       id: 'portfolio',
-      title: 'Portfolio Modernization',
-      metric: '$15M',
-      subtext: 'Value Under Management',
+      title: 'Portfolio & Governance',
+      metric: '$20M+',
+      subtext: 'Annual Tech Portfolio',
       icon: Wallet,
       color: 'text-cyan-600 dark:text-cyan-400',
       chart: (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <BarChart data={performanceData} layout="vertical" barSize={20}>
               <XAxis type="number" hide />
               <YAxis dataKey="name" type="category" width={50} tick={{fill: '#64748b', fontSize: 10}} />
@@ -61,26 +59,26 @@ const StrategicPillars: React.FC = () => {
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'Legacy Modernization Strategy',
-        description: 'Executing a rigorous de-risking strategy for a massive legacy portfolio while transitioning to modern cloud-native architectures.',
+        heading: 'Strategic Investment Governance',
+        description: 'End-to-end accountability for balancing speed, quality, and risk across a massive enterprise technology landscape.',
         points: [
-          'De-risking $15M Portfolio via Strangler Fig pattern',
-          'Legacy Retirement Strategy (Sunset 8+ Core Apps)',
-          'Security & Compliance Hardening',
-          'Managed 180+ Products Lifecycle'
+          'Governing 180+ Products & 30+ Global Teams',
+          'Go/No-Go Decision Authority for Enterprise Platforms',
+          'Declined No-Code adoption to mitigate long-term tech debt',
+          'Strategic Budget Allocation & Vendor Management'
         ],
-        tags: ['Risk Mgmt', 'Cloud Migration', 'Cost Optimization']
+        tags: ['Investment Strategy', 'Risk Management', 'Executive Governance']
       }
     },
     {
       id: 'org',
-      title: 'Organizational Scale',
-      metric: '100+',
-      subtext: 'Global Engineering Team',
+      title: 'Organization Leadership',
+      metric: 'Managers²',
+      subtext: 'Managers-of-Managers Level',
       icon: Users,
       color: 'text-blue-600 dark:text-blue-400',
       chart: (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <AreaChart data={teamData}>
             <defs>
               <linearGradient id="colorEng" x1="0" y1="0" x2="0" y2="1">
@@ -93,52 +91,52 @@ const StrategicPillars: React.FC = () => {
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'Engineering Leadership & Culture',
-        description: 'Building high-performance, distributed engineering teams through culture, autonomy, and clear technical governance.',
+        heading: 'Organization Building & Talent',
+        description: 'Designing and scaling multi-layer engineering organizations with full accountability for executive hiring and succession.',
         points: [
-          'Scaled organization from 30 to 110+ engineers',
-          'Implemented Spotify Squad Model for autonomy',
-          'Managed $15M+ Operational Budget',
-          'Strategic Vendor Partnerships (AWS, Azure, Databricks)'
+          'Directing 100+ Engineers & Architects globally',
+          'Executive Hiring & Performance Pipelines',
+          'Nearshore Development Center Launch (Risk Reduction)',
+          'Mentorship of Managers and Principal-level ICs'
         ],
-        tags: ['Leadership', 'Scaling', 'Culture']
+        tags: ['Org Design', 'Global Scaling', 'People Leadership']
       }
     },
     {
       id: 'ai',
-      title: 'AI/ML & Data Innovation',
-      metric: '>50%',
-      subtext: 'GenAI Adoption',
+      title: 'AI/ML Platform Strategy',
+      metric: 'Enterprise',
+      subtext: 'Firmwide GenAI Lead',
       icon: Brain,
       color: 'text-purple-600 dark:text-purple-400',
       chart: (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
             <LineChart data={aiData}>
               <Line type="monotone" dataKey="usage" stroke="#a855f7" strokeWidth={3} dot={{fill: '#a855f7', r: 4}} />
             </LineChart>
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'Enterprise Intelligence Roadmap',
-        description: 'Operationalizing Generative AI and Data Mesh to create a self-service intelligence layer for the enterprise.',
+        heading: 'AI & Generative Intelligence Roadmap',
+        description: 'Defining and operationalizing enterprise Generative and Agentic AI capabilities integrated with knowledge ecosystems.',
         points: [
-          'GenAI Adoption Strategy (Copilot/Cursor)',
-          'Data Mesh Implementation (Gold/Silver/Bronze)',
-          'Corporate AI Governance & Ethics',
-          'RAG Platform for 45k+ Users'
+          'Operationalized firmwide GenAI for 45,000+ users',
+          'RAG & Agentic AI Framework Standards',
+          'Safety, Regulatory Compliance & Ethics Controls',
+          'Investment alignment to measurable product outcomes'
         ],
-        tags: ['GenAI', 'Data Mesh', 'Governance']
+        tags: ['GenAI', 'Agentic Systems', 'Compliance']
       }
     },
     {
       id: 'ops',
-      title: 'Engineering Excellence',
-      metric: '+50%',
-      subtext: 'Developer Productivity',
+      title: 'Cloud & Reliability',
+      metric: '50+',
+      subtext: 'Mission Critical Systems',
       icon: Activity,
       color: 'text-green-600 dark:text-green-400',
       chart: (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <AreaChart data={[{v:20},{v:40},{v:35},{v:50},{v:65},{v:85}]}>
              <defs>
               <linearGradient id="colorProd" x1="0" y1="0" x2="0" y2="1">
@@ -151,15 +149,15 @@ const StrategicPillars: React.FC = () => {
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'DevEx & Platform Engineering',
-        description: 'Reducing cognitive load for developers through platform engineering, automation, and superior tooling.',
+        heading: 'Infrastructure & Engineering Excellence',
+        description: 'Accountable for multi-year modernization and reliability across AWS/Azure for regulated environments.',
         points: [
-          'DORA Metrics Optimization',
-          'Developer Experience (DevEx) Portal',
-          'Technical Debt Governance',
-          'CI/CD Standardization'
+          '50% reduction in time-to-market via DevOps',
+          'Modernized 50+ mission-critical systems',
+          'Instituted ADRs & 4+1 Architectural models',
+          'Legacy Risk Retirement & Cost Optimization'
         ],
-        tags: ['DevOps', 'Platform Eng', 'Efficiency']
+        tags: ['Cloud Strategy', 'Reliability', 'Engineering Standards']
       }
     }
   ];
@@ -206,9 +204,9 @@ const StrategicPillars: React.FC = () => {
               </div>
               
               <div className="p-4 rounded bg-blue-500/5 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
-                <div className="text-blue-600 dark:text-blue-400 text-xs font-mono mb-2 uppercase tracking-tight">Impact Verification</div>
+                <div className="text-blue-600 dark:text-blue-400 text-xs font-mono mb-2 uppercase tracking-tight">Executive Summary</div>
                 <div className="text-slate-600 dark:text-slate-300 text-sm">
-                  Metrics are derived from real-time telemetry across the enterprise portfolio.
+                  Metrics verified through firmwide governance audits and operational telemetry.
                 </div>
               </div>
           </div>
@@ -217,20 +215,20 @@ const StrategicPillars: React.FC = () => {
   );
 
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-950 border-y border-slate-200 dark:border-slate-900 transition-colors duration-300" id="strategic-pillars">
+    <section className="py-10 md:py-16 bg-slate-50 dark:bg-slate-950 border-y border-slate-200 dark:border-slate-900 transition-colors duration-300" id="strategic-pillars">
       <div className="max-w-7xl mx-auto px-4">
         
-        <div className="mb-12">
+        <div className="mb-8 md:mb-12">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
             <Target className="text-cyan-600 dark:text-cyan-500" />
-            Strategic Pillars & Competencies
+            Strategic Leadership Pillars
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
-            A unified view of performance telemetry and the strategic architecture driving these outcomes. Click on any metrics card to see underlying details.
+            A comprehensive view of executive accountability, portfolio performance, and organizational impact driving global enterprise results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 md:mb-12">
           {pillars.map((pillar) => {
             const isActive = activeId === pillar.id;
             const Icon = pillar.icon;
@@ -262,7 +260,7 @@ const StrategicPillars: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="h-24 w-full mb-2 opacity-80">
+                  <div className="h-24 w-full mb-2 opacity-80 min-h-[96px] block">
                     {pillar.chart}
                   </div>
                   

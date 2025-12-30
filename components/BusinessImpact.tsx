@@ -3,12 +3,12 @@ import { Zap, Cloud, Bot, BookOpen, Users, Rocket, TrendingUp, ArrowRight } from
 
 const BusinessImpact: React.FC = () => {
   return (
-    <section className="py-20 px-4 max-w-7xl mx-auto border-t border-slate-100 dark:border-slate-900 bg-white/50 dark:bg-slate-950/50 transition-colors duration-300">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <section className="py-10 md:py-16 px-4 max-w-7xl mx-auto border-t border-slate-100 dark:border-slate-900 bg-white/50 dark:bg-slate-950/50 transition-colors duration-300">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
         
         {/* Left Column: Technology Transformation */}
         <div>
-          <div className="mb-8">
+          <div className="mb-6 md:mb-8">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
               <TrendingUp className="text-cyan-600 dark:text-cyan-400" />
               Tech Transformations
@@ -18,7 +18,7 @@ const BusinessImpact: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <TechCard 
               icon={<Bot className="text-purple-600 dark:text-purple-400" size={24} />}
               title="GenAI & Agentic AI Implementation"
@@ -54,7 +54,7 @@ const BusinessImpact: React.FC = () => {
 
         {/* Right Column: Business Impact */}
         <div>
-          <div className="mb-8">
+          <div className="mb-6 md:mb-8">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
               <Rocket className="text-green-600 dark:text-green-400" />
               Business Impact Programs

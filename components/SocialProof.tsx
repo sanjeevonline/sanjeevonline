@@ -54,8 +54,8 @@ const recommendations = [
 
 const SocialProof: React.FC = () => {
   return (
-    <section className="py-20 px-4 max-w-7xl mx-auto border-t border-slate-100 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
-      <div className="mb-12 flex flex-col items-center text-center">
+    <section className="py-10 md:py-16 px-4 max-w-7xl mx-auto border-t border-slate-100 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
+      <div className="mb-8 md:mb-12 flex flex-col items-center text-center">
         <div className="flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-blue-500/5 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs font-mono tracking-wider uppercase">
           <ShieldCheck size={14} />
           Verified Logs
@@ -105,7 +105,7 @@ const SocialProof: React.FC = () => {
         ))}
       </div>
 
-      <div className="mt-12 text-center">
+      <div className="mt-8 md:mt-12 text-center">
         <a 
           href="https://www.linkedin.com/in/sanjeevsprofile/details/recommendations/?detailScreenTabIndex=0" 
           target="_blank" 

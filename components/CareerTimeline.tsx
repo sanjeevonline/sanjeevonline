@@ -4,71 +4,73 @@ import { CareerNode } from '../types';
 
 const history: CareerNode[] = [
   {
-    id: 'current',
-    role: 'Chief Architect - Client Activation & Capabilities',
+    id: 'chief-arch',
+    role: 'Chief Architect - Client Activation & Capabilities Domain',
     company: 'McKinsey & Company',
-    period: 'Jan 2023 - Present',
-    description: 'Orchestrating enterprise technology strategy, AI transformation, and operational governance for global platforms.',
+    period: 'Dec 2022 - Present',
+    description: 'Directing enterprise-wide cloud and AI strategies with accountability for investment outcomes, platform standards, and global engineering alignment.',
     achievements: [
-      'Operationalized firmwide Generative & Agentic AI governance for 45,000+ users.',
-      'Directed AI engineering adoption (Copilot/Cursor), boosting productivity by 20%.',
-      'Defined Enterprise Data Strategy (Medallion Architecture) for 180+ products.',
-      'Established executive technical governance (ADRs) to accelerate decision velocity.'
+      'Directed firmwide Cloud & AI strategy for 30+ global engineering teams in regulated environments.',
+      'Accountable for Enterprise GenAI/Agentic platforms, integrating RAG & LLMs into firm knowledge ecosystem.',
+      'Governed standards (Medallion Architecture, Interoperability) across 180+ products.',
+      'Instituted firmwide architecture governance (ADRs, 4+1 model) boosting delivery velocity.',
+      'Led investment go/no-go decisions, declining low-code where it conflicted with scalability objectives.'
     ],
-    techStack: ['Strategic Planning', 'AI Governance', 'Org Transformation', 'Budget Mgmt']
+    techStack: ['Executive Governance', 'GenAI Strategy', 'Platform Standards', 'Investment Strategy']
   },
   {
     id: 'principal-ii',
     role: 'Principal Architect II - People Portfolio',
     company: 'McKinsey & Company',
     period: 'Aug 2015 - Dec 2022',
-    description: 'Executive technology leadership for a $15M annual portfolio supporting 45k+ colleagues globally.',
+    description: 'Executive technology leadership for a $15M annual portfolio supporting 45,000+ colleagues.',
     achievements: [
-      'Led Cloud Transformation strategy, migrating 50+ legacy systems to AWS/Azure.',
-      'Scaled engineering organization to 100+ members, mentoring 15+ leaders.',
-      'Established firmwide Technical Debt Governance program.',
-      'Managed $15M budget and strategic vendor partnerships.'
+      'Built and scaled a global engineering organization to 100+ engineers with defined leadership layers.',
+      'Led the migration of 50+ legacy applications to AWS/Azure, improving performance by 50%.',
+      'Spearheaded enterprise DevOps initiatives (CI/CD, observability) for multi-cloud platforms.',
+      'Implemented IaC automation using Terraform and CloudFormation at enterprise scale.'
     ],
-    techStack: ['Cloud Strategy', 'Team Scaling', 'Vendor Management', 'DevSecOps']
+    techStack: ['Org Scaling', 'Cloud Migration', 'DevSecOps', 'Portfolio Mgmt']
   },
   {
     id: 'principal-i',
     role: 'Principal Architect - Knowledge Portfolio',
     company: 'McKinsey & Company',
     period: 'May 2012 - Aug 2015',
-    description: 'Strategic roadmap definition and delivery for the firm\'s global knowledge ecosystem.',
+    description: 'Founding architecture lead for the firm’s first knowledge graph and knowledge applications backbone.',
     achievements: [
-      'Delivered 30+ mission-critical applications through Agile/DevOps transformation.',
-      'Reduced time-to-market by 50% via process optimization.',
-      'Established nearshore development centers to optimize delivery costs.'
+      'Built a suite of 30+ knowledge applications forming the backbone of firm knowledge architecture.',
+      'Achieved 50% reduction in time-to-market via Agile and DevOps transformation programs.',
+      'Launched a nearshore development center to optimize cost and mitigate delivery risk.'
     ],
-    techStack: ['Agile Transformation', 'Global Delivery', 'Roadmap Planning']
+    techStack: ['Knowledge Graph', 'Agile Transformation', 'Global Delivery']
   },
   {
     id: 'early-career',
     role: 'Early Career Highlights',
     company: 'Tech Mahindra • NIIT Ltd. • Capgemini • Otto Burlington',
     period: '2001 - 2012',
-    description: 'Progressively senior engineering and architecture roles delivering large-scale enterprise systems including taxation platforms for the Finance Ministry of Belgium, credit-card origination systems for HSBC, and large LMS platforms for NIIT.',
+    description: 'Delivered large-scale systems for the Finance Ministry of Belgium, HSBC (credit-card origination), and NIIT.',
     achievements: [
-      'Extensive experience in Java/J2EE, distributed systems, solution design, and enterprise platform engineering.'
+      'Extensive experience in Java/J2EE, distributed systems, and enterprise platform engineering.',
+      'Proven track record of building complex business applications from the ground up.'
     ],
-    techStack: ['Java/J2EE', 'Distributed Systems', 'Solution Architecture', 'Platform Eng']
+    techStack: ['Java/J2EE', 'Distributed Systems', 'Solution Architecture']
   }
 ];
 
 const CareerTimeline: React.FC = () => {
   return (
-    <section className="py-20 px-4 max-w-5xl mx-auto transition-colors duration-300">
-      <div className="mb-12 text-center">
+    <section className="py-10 md:py-16 px-4 max-w-5xl mx-auto transition-colors duration-300">
+      <div className="mb-8 md:mb-12 text-center">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-3">
           <GitCommit className="text-purple-600 dark:text-purple-500" />
-          Career Progression
+          Executive Milestones
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2">Timeline of executive milestones and organizational impact</p>
+        <p className="text-slate-600 dark:text-slate-400 mt-2">13+ years of progressive leadership within McKinsey & Company</p>
       </div>
 
-      <div className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-12 space-y-12">
+      <div className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-12 space-y-10 md:space-y-12">
         {history.map((item, index) => (
           <div key={item.id} className="relative pl-8 md:pl-12 group">
             
@@ -78,7 +80,7 @@ const CareerTimeline: React.FC = () => {
               transition-colors duration-300
             `}></div>
 
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-6 hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-lg">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5 md:p-6 hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-lg">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">

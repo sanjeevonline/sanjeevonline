@@ -3,12 +3,9 @@ import { Mail, Linkedin, Github, MapPin, Terminal } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12 transition-colors duration-300">
+    <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-8 md:py-12 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <div className="w-16 h-16 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6 border border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
-          <Terminal className="text-cyan-600 dark:text-cyan-500" />
-        </div>
-        <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
+        <div className="flex flex-col md:flex-row justify-center gap-4 mb-8 md:mb-12">
           <a 
             href="mailto:sk@sanjeevonline.com" 
             className="flex items-center justify-center gap-3 px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-white hover:border-cyan-500 dark:hover:border-cyan-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-sm"
