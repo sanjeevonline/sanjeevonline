@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Cpu, ShieldCheck, Database, Briefcase, FileDown } from 'lucide-react';
+import { Terminal, ShieldCheck, Database, Briefcase, Github } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const [text, setText] = useState('');
@@ -59,7 +59,7 @@ const HeroSection: React.FC = () => {
             Leading the future of enterprise intelligence. Transforming organizations through <span className="text-slate-900 dark:text-slate-200 font-medium">Strategic Modernization</span>, <span className="text-slate-900 dark:text-slate-200 font-medium">AI Implementation</span>, and <span className="text-slate-900 dark:text-slate-200 font-medium">Operational Excellence</span>.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <div className="flex flex-col items-center lg:items-start gap-6">
             <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-500 dark:text-slate-400 justify-center lg:justify-start">
               <div className="flex items-center gap-2">
                 <Database className="text-blue-600 dark:text-blue-400" size={18} />
@@ -74,6 +74,16 @@ const HeroSection: React.FC = () => {
                 AI Transformation
               </div>
             </div>
+
+            <a 
+              href="https://github.com/sanjeevonline/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-mono text-sm font-bold hover:bg-slate-800 dark:hover:bg-white transition-all shadow-lg hover:shadow-cyan-500/20"
+            >
+              <Github size={18} />
+              EXPLORE_GITHUB_REPOS
+            </a>
           </div>
         </div>
       </div>

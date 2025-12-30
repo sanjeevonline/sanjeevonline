@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3830NK852"></script>
@@ -32,12 +32,12 @@
       
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #f8fafc; /* light mode default */
+        background-color: #020617; /* dark mode default */
         transition: background-color 0.3s ease, color 0.3s ease;
       }
       
-      html.dark body {
-        background-color: #020617; /* slate-950 */
+      html:not(.dark) body {
+        background-color: #f8fafc; /* light mode fallback */
       }
 
       /* Custom Scrollbar */
@@ -48,11 +48,11 @@
         background: transparent; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #cbd5e1; 
+        background: #334155; 
         border-radius: 4px;
       }
-      html.dark ::-webkit-scrollbar-thumb {
-        background: #334155; 
+      html:not(.dark) ::-webkit-scrollbar-thumb {
+        background: #cbd5e1; 
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8; 
@@ -69,12 +69,12 @@
       
       .grid-bg {
         background-size: 50px 50px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-      }
-      html.dark .grid-bg {
         background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
                           linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      }
+      html:not(.dark) .grid-bg {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
       }
     </style>
   <script type="importmap">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area, LineChart, Line } from 'recharts';
-import { TrendingUp, Users, Wallet, Brain, Activity, Target, ChevronDown, CheckCircle2, ArrowRight } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, Cell, AreaChart, Area, LineChart, Line, ResponsiveContainer } from 'recharts';
+import { Users, Wallet, Brain, Activity, Target, ChevronDown, CheckCircle2 } from 'lucide-react';
 
 const performanceData = [
   { name: 'Legacy', value: 40, label: 'Efficiency' },
@@ -226,8 +226,7 @@ const StrategicPillars: React.FC = () => {
             Strategic Pillars & Competencies
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
-            A unified view of performance telemetry and the strategic architecture driving these outcomes. 
-            <span className="text-cyan-600 dark:text-cyan-400 ml-1 font-medium">Click on any metrics card to inspect the underlying strategy.</span>
+            A unified view of performance telemetry and the strategic architecture driving these outcomes. Click on any metrics card to see underlying details.
           </p>
         </div>
 

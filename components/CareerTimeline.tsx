@@ -1,5 +1,5 @@
 import React from 'react';
-import { GitCommit, Circle, CheckCircle2 } from 'lucide-react';
+import { GitCommit, CheckCircle2 } from 'lucide-react';
 import { CareerNode } from '../types';
 
 const history: CareerNode[] = [

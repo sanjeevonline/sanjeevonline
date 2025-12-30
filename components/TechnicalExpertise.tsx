@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Cpu, Cloud, Database, Lock, Code, LayoutGrid, Brain, Terminal, Bot, Star, Globe, Layers, Info } from 'lucide-react';
+import { Cpu, Cloud, Database, Lock, LayoutGrid, Brain, Terminal, Bot, Star } from 'lucide-react';
 import { SkillCategory } from '../types';
 
 const skillData: SkillCategory[] = [

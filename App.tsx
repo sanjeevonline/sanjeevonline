@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Radar } from 'lucide-react';
+import { Sun, Moon, Radar, Github } from 'lucide-react';
 import HeroSection from './components/HeroSection';
 import StrategicPillars from './components/StrategicPillars';
 import CareerTimeline from './components/CareerTimeline';
@@ -10,18 +10,18 @@ import BusinessImpact from './components/BusinessImpact';
 import SocialProof from './components/SocialProof';
 
 const App: React.FC = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Initial theme setup - default to light unless specifically saved as dark
+    // Initial theme setup - default to dark unless specifically saved as light
     const savedTheme = localStorage.getItem('theme');
     
-    if (savedTheme === 'dark') {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    } else {
+    if (savedTheme === 'light') {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
+    } else {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
@@ -57,7 +57,7 @@ const App: React.FC = () => {
                 className="flex items-center gap-2 text-[10px] font-mono font-bold tracking-widest text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-all uppercase py-1 border-b-2 border-cyan-500/30 hover:border-cyan-500 group"
               >
                 <Radar size={14} className="group-hover:animate-spin-slow transition-all duration-700" />
-                <span className="drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]">TECH_RADAR</span>
+                <span className="drop-shadow-[0_0_8_px_rgba(6,182,212,0.4)]">TECH_RADAR</span>
               </a>
             </div>
           </div>
