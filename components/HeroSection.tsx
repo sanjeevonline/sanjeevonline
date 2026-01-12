@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, ShieldCheck, Database, Briefcase, Github, Rocket } from 'lucide-react';
+import { Terminal, ShieldCheck, Database, Briefcase, Github, Rocket, Users, Bot } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const [text, setText] = useState('');
   const fullText = `> INITIALIZING EXECUTIVE PROFILE...
-> LOAD MODULE: PLATFORM_TRANSFORMATION_EXEC
-> LOAD MODULE: STRATEGIC_INVESTMENT_GOVERNANCE
-> LOAD MODULE: AI_ML_PLATFORM_LEADER
+> LOAD MODULE: ENTERPRISE_PRODUCT_LEADERSHIP
+> LOAD MODULE: AI_POWERED_WORKFLOW_INNOVATION
+> LOAD MODULE: EMPLOYEE_EXPERIENCE_EXEC
 > AUTH: SANJEEV KUMAR
-> PORTFOLIO_VALUE: $20M+ ANNUAL
-> LEADERSHIP: MANAGERS-OF-MANAGERS
-> STATUS: ONLINE...`;
+> SCALE: 45,000+ USERS | $20M+ PORTFOLIO
+> LEADERSHIP: 100+ ENGINEERS | GLOBAL ORG
+> STATUS: OPERATIONAL...`;
 
   useEffect(() => {
     let i = 0;
@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="ml-2 text-slate-400 text-xs">exec@strategy-console:~</span>
+            <span className="ml-2 text-slate-400 text-xs">exec@product-console:~</span>
           </div>
           <div className="p-6 text-cyan-400 min-h-[200px] md:min-h-[250px] whitespace-pre-wrap">
             {text}
@@ -48,8 +48,8 @@ const HeroSection: React.FC = () => {
         {/* Right: Intro Text */}
         <div className="space-y-4 md:space-y-6 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 text-xs font-semibold tracking-wider uppercase shadow-sm">
-            <Rocket size={14} />
-            Platform & Transformation Executive
+            <Bot size={14} />
+            Enterprise Product & AI Innovator
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
@@ -57,22 +57,22 @@ const HeroSection: React.FC = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Driving engineering resilience and <span className="text-slate-900 dark:text-slate-200 font-medium">differentiated digital experiences</span> at global scale. Leading a <span className="text-cyan-600 dark:text-cyan-400 font-bold">$20M+ portfolio</span> spanning AI innovation, cloud modernization, and multi-layer organization building.
+            Transforming how <span className="text-slate-900 dark:text-slate-200 font-medium">45,000+ colleagues</span> discover knowledge and deliver work. Executive owner of a <span className="text-cyan-600 dark:text-cyan-400 font-bold">$20M+ annual portfolio</span> of internal products powering global enterprise workflows.
           </p>
 
           <div className="flex flex-col items-center lg:items-start gap-6 md:gap-8">
             <div className="flex flex-wrap gap-4 md:gap-6 text-sm font-medium text-slate-500 dark:text-slate-400 justify-center lg:justify-start">
               <div className="flex items-center gap-2">
-                <Database className="text-blue-600 dark:text-blue-400" size={20} />
-                Strategic Data Governance
+                <Users className="text-blue-600 dark:text-blue-400" size={20} />
+                Employee Experience
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="text-blue-600 dark:text-blue-400" size={20} />
-                Executive Leadership
+                Platform Guardrails
               </div>
               <div className="flex items-center gap-2">
                 <Terminal className="text-blue-600 dark:text-blue-400" size={20} />
-                AI/ML Roadmap
+                Agentic AI Strategy
               </div>
             </div>
           </div>

@@ -5,57 +5,58 @@ import { CareerNode } from '../types';
 const history: CareerNode[] = [
   {
     id: 'chief-arch',
-    role: 'Chief Architect - Client Activation & Capabilities Domain',
+    role: 'Chief Architect (Executive Product Owner)',
     company: 'McKinsey & Company',
     period: 'Dec 2022 - Present',
-    description: 'Directing enterprise-wide cloud and AI strategies with accountability for investment outcomes, platform standards, and global engineering alignment.',
+    description: 'Executive owner of core internal products used by 45,000+ colleagues. Directing firmwide internal product and platform strategy spanning Cloud, Data, and AI.',
     achievements: [
-      'Directed firmwide Cloud & AI strategy for 30+ global engineering teams in regulated environments.',
-      'Accountable for Enterprise GenAI/Agentic platforms, integrating RAG & LLMs into firm knowledge ecosystem.',
-      'Governed standards (Medallion Architecture, Interoperability) across 180+ products.',
-      'Instituted firmwide architecture governance (ADRs, 4+1 model) boosting delivery velocity.',
-      'Led investment go/no-go decisions, declining low-code where it conflicted with scalability objectives.'
+      'Launched AI-powered internal products embedded into daily consultant workflows for research & decision-making.',
+      'Built AI-ready knowledge foundation connecting structured/unstructured content for explainable experiences.',
+      'Established product guardrails (data, security, cost) allowing autonomous team innovation.',
+      'Led product investment go/no-go decisions, declining point solutions to protect long-term economics.',
+      'Governing internal product strategy across 30+ global teams in regulated environments.'
     ],
-    techStack: ['Executive Governance', 'GenAI Strategy', 'Platform Standards', 'Investment Strategy']
+    techStack: ['Internal Product Strategy', 'AI-Powered Workflows', 'Investment Discipline', 'Enterprise AI']
   },
   {
     id: 'principal-ii',
-    role: 'Principal Architect II - People Portfolio',
+    role: 'Principal Architect II (General Manager)',
     company: 'McKinsey & Company',
     period: 'Aug 2015 - Dec 2022',
-    description: 'Executive technology leadership for a $15M annual portfolio supporting 45,000+ colleagues.',
+    description: 'General Manager for Employee Experience and Talent Product Portfolio. Directed a $15M annual portfolio supporting 45,000+ colleagues.',
     achievements: [
-      'Built and scaled a global engineering organization to 100+ engineers with defined leadership layers.',
-      'Led the migration of 50+ legacy applications to AWS/Azure, improving performance by 50%.',
-      'Spearheaded enterprise DevOps initiatives (CI/CD, observability) for multi-cloud platforms.',
-      'Implemented IaC automation using Terraform and CloudFormation at enterprise scale.'
+      'Translated complex people models into simple, scalable digital experiences for staffing & learning.',
+      'Led end-to-end modernization of 50+ employee-facing systems into cloud-native platforms.',
+      'Built and scaled global product & engineering organizations (100+ engineers) with clear ownership.',
+      'Established internal developer platforms (IDP), CI/CD, and DevEx tooling to accelerate delivery.'
     ],
-    techStack: ['Org Scaling', 'Cloud Migration', 'DevSecOps', 'Portfolio Mgmt']
+    techStack: ['Employee Experience', 'Talent Products', 'Org Scaling', 'Cloud-Native Platforms']
   },
   {
     id: 'principal-i',
-    role: 'Principal Architect - Knowledge Portfolio',
+    role: 'Principal Architect (Product Leader)',
     company: 'McKinsey & Company',
     period: 'May 2012 - Aug 2015',
-    description: 'Founding architecture lead for the firm’s first knowledge graph and knowledge applications backbone.',
+    description: 'Product leader for the firm’s digital knowledge and research ecosystem. Founding lead for firm’s first knowledge graph.',
     achievements: [
-      'Built a suite of 30+ knowledge applications forming the backbone of firm knowledge architecture.',
-      'Achieved 50% reduction in time-to-market via Agile and DevOps transformation programs.',
-      'Launched a nearshore development center to optimize cost and mitigate delivery risk.'
+      'Built a suite of 30+ knowledge products enabling consultants to find expertise & reuse intellectual capital.',
+      'Created firm’s first enterprise knowledge graph enabling semantic search across millions of documents.',
+      'Led DevOps and developer productivity transformation, cutting time-to-market by ~50%.',
+      'Launched a nearshore engineering center to increase delivery capacity and improve resilience.'
     ],
-    techStack: ['Knowledge Graph', 'Agile Transformation', 'Global Delivery']
+    techStack: ['Knowledge Graphs', 'Semantic Search', 'Agile Delivery', 'Nearshore Scaling']
   },
   {
     id: 'early-career',
-    role: 'Early Career Highlights',
-    company: 'Tech Mahindra • NIIT Ltd. • Capgemini • Otto Burlington',
+    role: 'Early Career Strategist',
+    company: 'Tech Mahindra • NIIT Ltd. • Capgemini',
     period: '2001 - 2012',
-    description: 'Delivered large-scale systems for the Finance Ministry of Belgium, HSBC (credit-card origination), and NIIT.',
+    description: 'Strategic engineering roles delivering high-stakes enterprise systems for Finance Ministry of Belgium and HSBC.',
     achievements: [
-      'Extensive experience in Java/J2EE, distributed systems, and enterprise platform engineering.',
-      'Proven track record of building complex business applications from the ground up.'
+      'Orchestrated architectural design for national taxation platforms and global credit-card systems.',
+      'Developed deep-domain expertise in Java/J2EE, API Design, and High-Performance Computing.'
     ],
-    techStack: ['Java/J2EE', 'Distributed Systems', 'Solution Architecture']
+    techStack: ['J2EE', 'Distributed Systems', 'API Design', 'Technical Rigor']
   }
 ];
 
@@ -67,7 +68,7 @@ const CareerTimeline: React.FC = () => {
           <GitCommit className="text-purple-600 dark:text-purple-500" />
           Executive Milestones
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2">13+ years of progressive leadership within McKinsey & Company</p>
+        <p className="text-slate-600 dark:text-slate-400 mt-2">13+ years of progressive product leadership within McKinsey & Company</p>
       </div>
 
       <div className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-12 space-y-10 md:space-y-12">

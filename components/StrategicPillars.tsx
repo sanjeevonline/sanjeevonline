@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Cell, AreaChart, Area, LineChart, Line, ResponsiveContainer } from 'recharts';
-import { Users, Wallet, Brain, Activity, Target, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { Users, Wallet, Brain, Activity, Target, ChevronDown, CheckCircle2, Package } from 'lucide-react';
 
 const performanceData = [
-  { name: 'Legacy', value: 30, label: 'Resilience' },
-  { name: 'Target', value: 98, label: 'Resilience' },
+  { name: 'Legacy', value: 30 },
+  { name: 'Scale', value: 98 },
 ];
 
 const teamData = [
@@ -40,11 +40,11 @@ const StrategicPillars: React.FC = () => {
 
   const pillars: PillarDetail[] = [
     {
-      id: 'portfolio',
-      title: 'Portfolio & Governance',
-      metric: '$20M+',
-      subtext: 'Annual Tech Portfolio',
-      icon: Wallet,
+      id: 'product',
+      title: 'Internal Product Suite',
+      metric: '180+',
+      subtext: 'Global Enterprise Products',
+      icon: Package,
       color: 'text-cyan-600 dark:text-cyan-400',
       chart: (
         <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
@@ -59,22 +59,22 @@ const StrategicPillars: React.FC = () => {
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'Strategic Investment Governance',
-        description: 'End-to-end accountability for balancing speed, quality, and risk across a massive enterprise technology landscape.',
+        heading: 'Product Investment & Discipline',
+        description: 'Applying rigorous investment discipline to a $20M+ portfolio to maximize adoption and business impact across internal ecosystems.',
         points: [
-          'Governing 180+ Products & 30+ Global Teams',
-          'Go/No-Go Decision Authority for Enterprise Platforms',
-          'Declined No-Code adoption to mitigate long-term tech debt',
-          'Strategic Budget Allocation & Vendor Management'
+          'Ownership of 180+ internal products for 45,000+ employees',
+          'Disciplined go/no-go decisions for platform longevity',
+          'Declined point solutions to prevent UX fragmentation',
+          'Balanced product economics vs long-term leverage'
         ],
-        tags: ['Investment Strategy', 'Risk Management', 'Executive Governance']
+        tags: ['Product ROI', 'Investment Governance', 'Strategic Roadmap']
       }
     },
     {
       id: 'org',
-      title: 'Organization Leadership',
-      metric: 'Managers²',
-      subtext: 'Managers-of-Managers Level',
+      title: 'Global Org Builder',
+      metric: '100+',
+      subtext: 'Product & Eng Organization',
       icon: Users,
       color: 'text-blue-600 dark:text-blue-400',
       chart: (
@@ -91,22 +91,22 @@ const StrategicPillars: React.FC = () => {
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'Organization Building & Talent',
-        description: 'Designing and scaling multi-layer engineering organizations with full accountability for executive hiring and succession.',
+        heading: 'Organization Design & Succession',
+        description: 'Designing and leading global product and engineering organizations with clear ownership across employee journeys.',
         points: [
-          'Directing 100+ Engineers & Architects globally',
-          'Executive Hiring & Performance Pipelines',
-          'Nearshore Development Center Launch (Risk Reduction)',
-          'Mentorship of Managers and Principal-level ICs'
+          'Directing multi-layer global teams (100+ engineers)',
+          'Clear accountability for delivery & executive succession',
+          'Established nearshore centers for risk mitigation',
+          'Mentorship of senior product and engineering leaders'
         ],
-        tags: ['Org Design', 'Global Scaling', 'People Leadership']
+        tags: ['Org Design', 'Global Scaling', 'Leadership Pipeline']
       }
     },
     {
       id: 'ai',
-      title: 'AI/ML Platform Strategy',
-      metric: 'Enterprise',
-      subtext: 'Firmwide GenAI Lead',
+      title: 'AI Workflow Innovation',
+      metric: 'Embedded',
+      subtext: 'Generative & Agentic AI',
       icon: Brain,
       color: 'text-purple-600 dark:text-purple-400',
       chart: (
@@ -117,22 +117,22 @@ const StrategicPillars: React.FC = () => {
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'AI & Generative Intelligence Roadmap',
-        description: 'Defining and operationalizing enterprise Generative and Agentic AI capabilities integrated with knowledge ecosystems.',
+        heading: 'AI-Powered Workflow Modernization',
+        description: 'Launching AI-powered products embedded into daily consultant and staff workflows for research and decision-making.',
         points: [
-          'Operationalized firmwide GenAI for 45,000+ users',
-          'RAG & Agentic AI Framework Standards',
-          'Safety, Regulatory Compliance & Ethics Controls',
-          'Investment alignment to measurable product outcomes'
+          'Launched GenAI embedded into core daily work',
+          'Built AI-ready knowledge & data foundation',
+          'Connected structured/unstructured content for RAG',
+          'Enforced safety, compliance, and explainable AI'
         ],
-        tags: ['GenAI', 'Agentic Systems', 'Compliance']
+        tags: ['Agentic AI', 'RAG Foundation', 'Workflow Automation']
       }
     },
     {
       id: 'ops',
-      title: 'Cloud & Reliability',
-      metric: '50+',
-      subtext: 'Mission Critical Systems',
+      title: 'Exp & Guardrails',
+      metric: 'Safe',
+      subtext: 'DevEx & Platform Standards',
       icon: Activity,
       color: 'text-green-600 dark:text-green-400',
       chart: (
@@ -149,15 +149,15 @@ const StrategicPillars: React.FC = () => {
         </ResponsiveContainer>
       ),
       strategy: {
-        heading: 'Infrastructure & Engineering Excellence',
-        description: 'Accountable for multi-year modernization and reliability across AWS/Azure for regulated environments.',
+        heading: 'Employee & Developer Experience',
+        description: 'Establishing product and platform guardrails that allow teams to innovate independently while avoiding runaway spend.',
         points: [
-          '50% reduction in time-to-market via DevOps',
-          'Modernized 50+ mission-critical systems',
-          'Instituted ADRs & 4+1 Architectural models',
-          'Legacy Risk Retirement & Cost Optimization'
+          'Modernized 50+ employee-facing systems',
+          'Established internal developer platforms (IDP)',
+          'Launched firmwide data interoperability standards',
+          'Enforced security, cost controls, and DevEx tooling'
         ],
-        tags: ['Cloud Strategy', 'Reliability', 'Engineering Standards']
+        tags: ['DevEx', 'Guardrails', 'Modernization']
       }
     }
   ];
@@ -224,7 +224,7 @@ const StrategicPillars: React.FC = () => {
             Strategic Leadership Pillars
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
-            A comprehensive view of executive accountability, portfolio performance, and organizational impact driving global enterprise results.
+            Driving enterprise impact through product ownership, AI innovation, and employee-centric experience design.
           </p>
         </div>
 

@@ -1,30 +1,32 @@
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Cpu, Cloud, Database, Lock, LayoutGrid, Brain, Terminal, Bot, Star, Shield, Layout } from 'lucide-react';
+// Added missing Briefcase and Users icons to the imports from lucide-react
+import { Cpu, Cloud, Database, Lock, LayoutGrid, Brain, Terminal, Bot, Star, Shield, Layout, Globe, Briefcase, Users } from 'lucide-react';
 import { SkillCategory } from '../types';
 
 const skillData: SkillCategory[] = [
   {
     id: 'leadership',
-    label: 'Enterprise Leadership & Operating Model',
+    label: 'Enterprise Product Leadership',
     skills: [
+      { name: 'Internal Product Strategy', level: 98 },
+      { name: 'Portfolio Investment Discipline', level: 97 },
       { name: 'Managers-of-Managers Leadership', level: 98 },
-      { name: 'Strategic Portfolio Management ($20M+)', level: 97 },
-      { name: 'Product & Platform Operating Models', level: 95 },
       { name: 'Executive Hiring & Talent Pipeline', level: 92 },
-      { name: 'Risk Management & Regulatory Readiness', level: 90 },
+      { name: 'Product & Platform Operating Models', level: 95 },
       { name: 'Vendor & Ecosystem Strategy', level: 94 }
     ]
   },
   {
     id: 'ai_strategy',
-    label: 'AI, ML & Platform Strategy',
+    label: 'AI, ML & Workflow Innovation',
     skills: [
       { name: 'Generative & Agentic AI Platforms', level: 98 },
       { name: 'AI Governance & Safety Standards', level: 96 },
-      { name: 'Enterprise RAG Architectures', level: 98 },
-      { name: 'LLM Fine-Tuning & Lifecycle Mgmt', level: 92 },
-      { name: 'MLOps / LLMOps Operating Models', level: 90 },
-      { name: 'Semantic & Vector Systems Strategy', level: 95 }
+      { name: 'RAG Architecture Foundation', level: 98 },
+      { name: 'LangChain & LangGraph Orchestration', level: 92 },
+      { name: 'LLM Fine-Tuning & Lifecycle Mgmt', level: 90 },
+      { name: 'Semantic Search & Knowledge Graphs', level: 95 }
     ]
   },
   {
@@ -40,13 +42,24 @@ const skillData: SkillCategory[] = [
     ]
   },
   {
+    id: 'saas',
+    label: 'SAAS Platforms & Interoperability',
+    skills: [
+      { name: 'Microsoft 365 Enterprise', level: 95 },
+      { name: 'Salesforce & CRM Strategy', level: 92 },
+      { name: 'ServiceNow Platform Governance', level: 90 },
+      { name: 'SAP Integration Frameworks', level: 88 },
+      { name: 'API & Service Platform Strategy', level: 96 }
+    ]
+  },
+  {
     id: 'data_analytics',
     label: 'Data & Analytics Platforms',
     skills: [
       { name: 'Enterprise Data Strategy', level: 97 },
-      { name: 'Lakehouse & Data Mesh Architecture', level: 98 },
+      { name: 'Lakehouse (Snowflake/Databricks)', level: 98 },
+      { name: 'Data Mesh & Medallion Fabric', level: 98 },
       { name: 'Data Governance & Master Data Mgmt', level: 90 },
-      { name: 'Streaming & Event-Driven Platforms', level: 94 },
       { name: 'AI-Ready Data Pipelines', level: 95 }
     ]
   },
@@ -57,18 +70,18 @@ const skillData: SkillCategory[] = [
       { name: 'Enterprise Architecture Leadership', level: 98 },
       { name: 'ADR & 4+1 Decision Frameworks', level: 97 },
       { name: 'Platform Interoperability Standards', level: 95 },
-      { name: 'Tech Debt Reduction Roadmaps', level: 96 },
+      { name: 'TOGAF / Zachman Methodologies', level: 90 },
       { name: 'Platform Guardrails & Standards', level: 98 }
     ]
   },
   {
     id: 'engineering',
-    label: 'Software & Platform Engineering',
+    label: 'Employee & Developer Experience',
     skills: [
       { name: 'Internal Developer Platforms (IDP)', level: 95 },
-      { name: 'API & Service Platform Strategy', level: 96 },
       { name: 'Developer Experience (DevEx)', level: 98 },
       { name: 'CI/CD & Engineering Excellence', level: 97 },
+      { name: 'Global Delivery Org Building', level: 98 },
       { name: 'Full-Stack Technical Oversight', level: 95 }
     ]
   }
@@ -97,14 +110,14 @@ const TechnicalExpertise: React.FC = () => {
   }, [activeCategory]);
 
   const coreSkills = [
+    { name: 'Internal Product Strategy', level: 98, category: 'leadership' },
     { name: 'Managers-of-Managers Leadership', level: 98, category: 'leadership' },
-    { name: 'Strategic Portfolio Management ($20M+)', level: 97, category: 'leadership' },
     { name: 'Generative & Agentic AI Platforms', level: 98, category: 'ai_strategy' },
-    { name: 'Lakehouse & Data Mesh Architecture', level: 98, category: 'data_analytics' },
-    { name: 'Enterprise Architecture Leadership', level: 98, category: 'governance' },
+    { name: 'Lakehouse (Snowflake/Databricks)', level: 98, category: 'data_analytics' },
     { name: 'Developer Experience (DevEx)', level: 98, category: 'engineering' },
+    { name: 'Portfolio Investment Discipline', level: 97, category: 'leadership' },
     { name: 'Hybrid Cloud Platform Strategy', level: 98, category: 'cloud_infra' },
-    { name: 'ADR & 4+1 Decision Frameworks', level: 97, category: 'governance' }
+    { name: 'Platform Guardrails & Standards', level: 98, category: 'governance' }
   ];
 
   const filteredSkills = activeCategory === 'all' 
@@ -118,6 +131,7 @@ const TechnicalExpertise: React.FC = () => {
       case 'leadership': return 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]';
       case 'ai_strategy': return 'bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.3)]';
       case 'cloud_infra': return 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.3)]';
+      case 'saas': return 'bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.3)]';
       case 'data_analytics': return 'bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.3)]';
       case 'governance': return 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.3)]';
       case 'engineering': return 'bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.3)]';
@@ -127,12 +141,13 @@ const TechnicalExpertise: React.FC = () => {
 
   const getCategoryLabel = (catId: string) => {
     switch (catId) {
-      case 'leadership': return 'EXECUTIVE';
-      case 'ai_strategy': return 'AI_STRATEGY';
+      case 'leadership': return 'PRODUCT_EXEC';
+      case 'ai_strategy': return 'AI_INNOVATION';
       case 'cloud_infra': return 'CLOUD_PLATFORM';
+      case 'saas': return 'SAAS_DOMAIN';
       case 'data_analytics': return 'DATA_SYSTEMS';
       case 'governance': return 'GOVERNANCE';
-      case 'engineering': return 'STRATEGIC_ENG';
+      case 'engineering': return 'EXP_STRATEGY';
       default: return 'SKILL';
     }
   };
@@ -146,7 +161,7 @@ const TechnicalExpertise: React.FC = () => {
             Executive & Technical Expertise
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
-            Bridging operational leadership with deep technical foresight. Validated through enterprise-scale delivery.
+            Synthesizing product vision with deep technical foresight. Validated through 45,000+ daily active users.
           </p>
         </div>
 
@@ -157,15 +172,15 @@ const TechnicalExpertise: React.FC = () => {
            </div>
            <div className="space-y-2">
              <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Scale Depth</span>
-                <span className="text-green-600 dark:text-green-400 font-bold">180+ PROD</span>
+                <span className="text-slate-500 dark:text-slate-400">Products</span>
+                <span className="text-green-600 dark:text-green-400 font-bold">180+ LIVE</span>
              </div>
              <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Governance Lock</span>
-                <span className="text-cyan-600 dark:text-cyan-400 font-bold">ADR/4+1</span>
+                <span className="text-slate-500 dark:text-slate-400">Experience</span>
+                <span className="text-cyan-600 dark:text-cyan-400 font-bold">EMPLOYEE-FIRST</span>
              </div>
              <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Portfolio</span>
+                <span className="text-slate-500 dark:text-slate-400">Budget Lock</span>
                 <span className="text-purple-600 dark:text-purple-400 font-bold">$20M+ ANNUAL</span>
              </div>
            </div>
@@ -174,10 +189,10 @@ const TechnicalExpertise: React.FC = () => {
 
       <div className="flex flex-wrap gap-2 mb-8 md:mb-10 p-2 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 w-fit backdrop-blur-sm shadow-sm">
         <FilterBtn active={activeCategory === 'core'} onClick={() => setActiveCategory('core')} icon={<Star size={14} />} label="CORE_EXECUTIVE" />
-        <FilterBtn active={activeCategory === 'leadership'} onClick={() => setActiveCategory('leadership')} icon={<Lock size={14} />} label="LEADERSHIP" />
-        <FilterBtn active={activeCategory === 'ai_strategy'} onClick={() => setActiveCategory('ai_strategy')} icon={<Bot size={14} />} label="AI_STRATEGY" />
-        <FilterBtn active={activeCategory === 'governance'} onClick={() => setActiveCategory('governance')} icon={<Shield size={14} />} label="GOVERNANCE" />
-        <FilterBtn active={activeCategory === 'cloud_infra'} onClick={() => setActiveCategory('cloud_infra')} icon={<Cloud size={14} />} label="CLOUD_INFRA" />
+        <FilterBtn active={activeCategory === 'leadership'} onClick={() => setActiveCategory('leadership')} icon={<Briefcase size={14} />} label="PRODUCT_LEAD" />
+        <FilterBtn active={activeCategory === 'ai_strategy'} onClick={() => setActiveCategory('ai_strategy')} icon={<Bot size={14} />} label="AI_WORKFLOWS" />
+        <FilterBtn active={activeCategory === 'saas'} onClick={() => setActiveCategory('saas')} icon={<Globe size={14} />} label="SAAS_DOMAINS" />
+        <FilterBtn active={activeCategory === 'engineering'} onClick={() => setActiveCategory('engineering')} icon={<Users size={14} />} label="EXP_STRATEGY" />
         <FilterBtn active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} icon={<LayoutGrid size={14} />} label="ALL_DOMAINS" />
       </div>
 
