@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, ShieldCheck, Database, Briefcase, Github, Rocket, Users, Bot } from 'lucide-react';
+import { Terminal, ShieldCheck, Database, Briefcase, Github, Rocket, Users, Bot, MapPin } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const [text, setText] = useState('');
@@ -8,8 +8,9 @@ const HeroSection: React.FC = () => {
 > LOAD MODULE: AI_POWERED_WORKFLOW_INNOVATION
 > LOAD MODULE: EMPLOYEE_EXPERIENCE_EXEC
 > AUTH: SANJEEV KUMAR
+> LOC: EDISON, NJ
 > SCALE: 45,000+ USERS | $20M+ PORTFOLIO
-> LEADERSHIP: 100+ ENGINEERS | GLOBAL ORG
+> EXP: 15+ YEARS BUILDING ENTERPRISE PRODUCTS
 > STATUS: OPERATIONAL...`;
 
   useEffect(() => {
@@ -47,9 +48,15 @@ const HeroSection: React.FC = () => {
 
         {/* Right: Intro Text */}
         <div className="space-y-4 md:space-y-6 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 text-xs font-semibold tracking-wider uppercase shadow-sm">
-            <Bot size={14} />
-            Enterprise Product & AI Innovator
+          <div className="flex flex-col items-center lg:items-start gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 text-xs font-semibold tracking-wider uppercase shadow-sm">
+              <Bot size={14} />
+              AI-Powered Workflow Innovator
+            </div>
+            <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-mono">
+              <MapPin size={12} />
+              EDISON, NJ
+            </div>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
@@ -57,22 +64,22 @@ const HeroSection: React.FC = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Transforming how <span className="text-slate-900 dark:text-slate-200 font-medium">45,000+ colleagues</span> discover knowledge and deliver work. Executive owner of a <span className="text-cyan-600 dark:text-cyan-400 font-bold">$20M+ annual portfolio</span> of internal products powering global enterprise workflows.
+            Enterprise Product Leader with <span className="text-slate-900 dark:text-slate-200 font-medium">15+ years</span> building platforms used by <span className="text-slate-900 dark:text-slate-200 font-medium">45,000+ employees</span>. Driving step-change productivity through <span className="text-cyan-600 dark:text-cyan-400 font-bold">Generative & Agentic AI</span> embedded into daily workflows.
           </p>
 
           <div className="flex flex-col items-center lg:items-start gap-6 md:gap-8">
             <div className="flex flex-wrap gap-4 md:gap-6 text-sm font-medium text-slate-500 dark:text-slate-400 justify-center lg:justify-start">
               <div className="flex items-center gap-2">
                 <Users className="text-blue-600 dark:text-blue-400" size={20} />
-                Employee Experience
+                Organization Builder
+              </div>
+              <div className="flex items-center gap-2">
+                <Briefcase className="text-blue-600 dark:text-blue-400" size={20} />
+                Portfolio Owner ($20M+)
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="text-blue-600 dark:text-blue-400" size={20} />
-                Platform Guardrails
-              </div>
-              <div className="flex items-center gap-2">
-                <Terminal className="text-blue-600 dark:text-blue-400" size={20} />
-                Agentic AI Strategy
+                Experience Executive
               </div>
             </div>
           </div>

@@ -5,58 +5,61 @@ import { CareerNode } from '../types';
 const history: CareerNode[] = [
   {
     id: 'chief-arch',
-    role: 'Chief Architect (Executive Product Owner)',
+    role: 'Chief Architect (Executive Owner)',
     company: 'McKinsey & Company',
     period: 'Dec 2022 - Present',
-    description: 'Executive owner of core internal products used by 45,000+ colleagues. Directing firmwide internal product and platform strategy spanning Cloud, Data, and AI.',
+    description: 'Executive owner of core internal products used by 45,000+ colleagues. Directing firmwide internal product and platform strategy.',
     achievements: [
-      'Launched AI-powered internal products embedded into daily consultant workflows for research & decision-making.',
-      'Built AI-ready knowledge foundation connecting structured/unstructured content for explainable experiences.',
-      'Established product guardrails (data, security, cost) allowing autonomous team innovation.',
-      'Led product investment go/no-go decisions, declining point solutions to protect long-term economics.',
-      'Governing internal product strategy across 30+ global teams in regulated environments.'
+      'Owned the firmwide strategy spanning Cloud, Data, and AI underpinning knowledge and delivery workflows.',
+      'Launched AI-powered internal products embedded into daily consultant and staff workflows.',
+      'Built AI-ready knowledge and data foundation connecting structured and unstructured content.',
+      'Established product and platform guardrails (data, interoperability, security, cost controls).',
+      'Led product investment go/no-go decisions, declining low-code when undermining scalability.'
     ],
-    techStack: ['Internal Product Strategy', 'AI-Powered Workflows', 'Investment Discipline', 'Enterprise AI']
+    techStack: ['Internal Product Strategy', 'Enterprise AI', 'Cloud-Native', 'Investment Governance']
   },
   {
     id: 'principal-ii',
     role: 'Principal Architect II (General Manager)',
     company: 'McKinsey & Company',
     period: 'Aug 2015 - Dec 2022',
-    description: 'General Manager for Employee Experience and Talent Product Portfolio. Directed a $15M annual portfolio supporting 45,000+ colleagues.',
+    description: 'General Manager for Employee Experience and Talent Product Portfolio supporting 45,000+ colleagues.',
     achievements: [
-      'Translated complex people models into simple, scalable digital experiences for staffing & learning.',
-      'Led end-to-end modernization of 50+ employee-facing systems into cloud-native platforms.',
-      'Built and scaled global product & engineering organizations (100+ engineers) with clear ownership.',
-      'Established internal developer platforms (IDP), CI/CD, and DevEx tooling to accelerate delivery.'
+      'Directed a $15M annual portfolio supporting colleagues across staffing, recruiting, and mobility.',
+      'Led end-to-end modernization of 50+ employee-facing systems into cloud-native platforms on AWS/Azure.',
+      'Built and scaled global product & engineering organization (100+ engineers) with clear ownership.',
+      'Partnered with HR and Firm Leadership to translate complex people models into digital experiences.',
+      'Established internal developer platforms (IDP), CI/CD, and DevEx tooling.'
     ],
-    techStack: ['Employee Experience', 'Talent Products', 'Org Scaling', 'Cloud-Native Platforms']
+    techStack: ['Portfolio Management', 'Org Building', 'Employee Experience', 'Cloud Migration']
   },
   {
     id: 'principal-i',
     role: 'Principal Architect (Product Leader)',
     company: 'McKinsey & Company',
     period: 'May 2012 - Aug 2015',
-    description: 'Product leader for the firm’s digital knowledge and research ecosystem. Founding lead for firm’s first knowledge graph.',
+    description: 'Product leader for digital knowledge and research ecosystem. Founding lead for first enterprise knowledge graph.',
     achievements: [
-      'Built a suite of 30+ knowledge products enabling consultants to find expertise & reuse intellectual capital.',
+      'Built a suite of 30+ knowledge products enabling consultants to find expertise and intellectual capital.',
       'Created firm’s first enterprise knowledge graph enabling semantic search across millions of documents.',
       'Led DevOps and developer productivity transformation, cutting time-to-market by ~50%.',
-      'Launched a nearshore engineering center to increase delivery capacity and improve resilience.'
+      'Launched a nearshore engineering center to increase delivery capacity and reduce cost.'
     ],
-    techStack: ['Knowledge Graphs', 'Semantic Search', 'Agile Delivery', 'Nearshore Scaling']
+    techStack: ['Knowledge Graph', 'DevOps Transformation', 'Nearshore Engineering', 'Product Leadership']
   },
   {
     id: 'early-career',
-    role: 'Early Career Strategist',
-    company: 'Tech Mahindra • NIIT Ltd. • Capgemini',
-    period: '2001 - 2012',
-    description: 'Strategic engineering roles delivering high-stakes enterprise systems for Finance Ministry of Belgium and HSBC.',
+    role: 'Strategic Engineering Roles',
+    company: 'Tech Mahindra • Capgemini • NIIT • Otto Burlington',
+    period: 'May 2001 - Aug 2012',
+    description: 'Led architecture for high-stakes enterprise systems including national taxation and global credit systems.',
     achievements: [
-      'Orchestrated architectural design for national taxation platforms and global credit-card systems.',
+      'Orchestrated taxation platform for Finance Ministry of Belgium (High Availability & Compliance).',
+      'Led global credit-card origination system design for HSBC (Complex J2EE Integrations).',
+      'Spearheaded large-scale Learning Management Systems (LMS) serving millions of users.',
       'Developed deep-domain expertise in Java/J2EE, API Design, and High-Performance Computing.'
     ],
-    techStack: ['J2EE', 'Distributed Systems', 'API Design', 'Technical Rigor']
+    techStack: ['Java/J2EE', 'Distributed Systems', 'API Design', 'Architecture Rigor']
   }
 ];
 
@@ -68,7 +71,7 @@ const CareerTimeline: React.FC = () => {
           <GitCommit className="text-purple-600 dark:text-purple-500" />
           Executive Milestones
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2">13+ years of progressive product leadership within McKinsey & Company</p>
+        <p className="text-slate-600 dark:text-slate-400 mt-2">~14 years of transformation leadership within McKinsey & Company</p>
       </div>
 
       <div className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-12 space-y-10 md:space-y-12">
