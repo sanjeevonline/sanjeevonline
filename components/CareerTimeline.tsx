@@ -3,12 +3,12 @@ import React from 'react';
 const history = [
   {
     company: "MCKINSEY & COMPANY",
-    location: "Global Consulting & Professional Services",
-    period: "May 2012 – Present",
+    location: "Global Consulting",
+    period: "2012 – Present",
     roles: [
       {
         title: "Chief Architect - Client Activation & AI Capabilities",
-        period: "Dec 2022 – Present",
+        period: "2022 – Present",
         impact: "Executive owner of McKinsey’s core internal products and AI foundations for 45,000+ colleagues globally.",
         bullets: [
           "Advisor to senior leadership on AI investment strategy and platform economics.",
@@ -20,7 +20,7 @@ const history = [
       },
       {
         title: "Principal Architect II - People Systems",
-        period: "Aug 2015 – Dec 2022",
+        period: "2015 – 2022",
         impact: "Led a $20M+ annual engineering portfolio supporting 45,000+ colleagues.",
         bullets: [
           "Modernized 50+ systems to AWS, increasing developer productivity by ~50%.",
@@ -30,7 +30,7 @@ const history = [
       },
       {
         title: "Principal Architect - Knowledge Systems",
-        period: "May 2012 – Aug 2015",
+        period: "2012 – 2015",
         impact: "Product and architecture leader for McKinsey’s digital knowledge and research ecosystem.",
         bullets: [
           "Built 30+ bespoke knowledge and research products used globally.",
@@ -41,7 +41,7 @@ const history = [
     ]
   },
   {
-    company: "SELECTED EARLY CAREER HIGHLIGHTS",
+    company: "EARLY CAREER HIGHLIGHTS",
     location: "Capgemini • Tech Mahindra • Otto",
     period: "2001 – 2012",
     roles: [
@@ -60,32 +60,32 @@ const history = [
 
 const CareerTimeline: React.FC = () => {
   return (
-    <section className="py-8 border-none">
-      <div className="space-y-8">
-        <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-blue-600 dark:text-blue-500">Professional Experience</h2>
+    <section className="py-4 border-none">
+      <div className="space-y-6">
+        <h2 className="text-[10px] uppercase tracking-[0.2em] font-bold text-blue-600">Professional History</h2>
         
-        <div className="space-y-12">
+        <div className="space-y-8">
           {history.map((comp, ci) => (
-            <div key={ci} className="space-y-6">
-              <div className="border-l-4 border-slate-900 dark:border-white pl-4">
-                <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">{comp.company}</h3>
-                <div className="text-sm font-medium text-slate-500 dark:text-slate-400">{comp.location} — {comp.period}</div>
+            <div key={ci} className="space-y-4">
+              <div className="border-l-2 border-slate-900 pl-3">
+                <h3 className="text-base font-black text-slate-900 tracking-tight leading-tight">{comp.company}</h3>
+                <div className="text-[10px] font-medium text-slate-400 uppercase tracking-wide">{comp.location} — {comp.period}</div>
               </div>
 
-              <div className="space-y-8 pl-4">
+              <div className="space-y-6 pl-3">
                 {comp.roles.map((role, ri) => (
-                  <div key={ri} className="space-y-3">
-                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                      <h4 className="font-bold text-slate-900 dark:text-white">{role.title}</h4>
-                      <span className="text-xs font-mono text-slate-500">{role.period}</span>
+                  <div key={ri} className="space-y-2">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                      <h4 className="text-[13px] font-bold text-slate-900">{role.title}</h4>
+                      <span className="text-[10px] font-mono text-slate-400">{role.period}</span>
                     </div>
                     
-                    {role.impact && <p className="text-sm font-medium text-slate-800 dark:text-slate-200 leading-relaxed italic border-l-2 border-blue-600 dark:border-blue-500 pl-4">{role.impact}</p>}
+                    {role.impact && <p className="text-[11px] font-medium text-slate-600 leading-relaxed italic border-l-2 border-blue-100 pl-3">{role.impact}</p>}
                     
-                    <ul className="space-y-1.5">
+                    <ul className="space-y-1">
                       {role.bullets.map((bullet, bi) => (
-                        <li key={bi} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
-                          <span className="mt-2 w-1.5 h-[1px] bg-slate-400 shrink-0"></span>
+                        <li key={bi} className="text-[11px] text-slate-500 flex items-start gap-1.5">
+                          <span className="mt-1.5 w-1 h-[1px] bg-slate-300 shrink-0"></span>
                           {bullet}
                         </li>
                       ))}

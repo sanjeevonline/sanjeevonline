@@ -26,18 +26,18 @@ const StrategicPillars: React.FC = () => {
   ];
 
   return (
-    <section className="py-8 border-none">
-      <div className="space-y-6">
-        <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-blue-600 dark:text-blue-500">Career Highlights</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+    <section className="py-4 border-none">
+      <div className="space-y-4">
+        <h2 className="text-[10px] uppercase tracking-[0.2em] font-bold text-blue-600">Career Highlights</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
           {highlights.map((h, i) => (
-            <div key={i} className="flex gap-4">
-              <div className="mt-1 shrink-0">
-                <h.icon size={20} className="text-slate-400" />
+            <div key={i} className="flex gap-3">
+              <div className="mt-0.5 shrink-0">
+                <h.icon size={16} className="text-slate-400" />
               </div>
-              <div className="space-y-1">
-                <h3 className="font-bold text-slate-900 dark:text-white">{h.title}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{h.description}</p>
+              <div className="space-y-0.5">
+                <h3 className="text-sm font-bold text-slate-900">{h.title}</h3>
+                <p className="text-xs text-slate-600 leading-normal">{h.description}</p>
               </div>
             </div>
           ))}
