@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
       <div className="space-y-6">
         <div className="space-y-2">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Global Enterprise Architect & AI Platform Leader
+            Sanjeev Kumar
           </h1>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
             <span className="flex items-center gap-1.5"><MapPin size={14} /> Edison, NJ</span>
