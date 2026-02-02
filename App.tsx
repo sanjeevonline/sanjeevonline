@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Radar, Github } from 'lucide-react';
+import { Sun, Moon, Radar, Mail, Linkedin, MapPin } from 'lucide-react';
 import HeroSection from './components/HeroSection';
 import StrategicPillars from './components/StrategicPillars';
 import CareerTimeline from './components/CareerTimeline';
 import Footer from './components/Footer';
 import TechnicalExpertise from './components/TechnicalExpertise';
-import FlagshipProjects from './components/FlagshipProjects';
-import BusinessImpact from './components/BusinessImpact';
 import SocialProof from './components/SocialProof';
 
 const App: React.FC = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Initial theme setup - default to dark unless specifically saved as light
     const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme === 'light') {
-      setIsDark(false);
-      document.documentElement.classList.remove('dark');
-    } else {
+    if (savedTheme === 'dark') {
       setIsDark(true);
       document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
@@ -38,78 +34,47 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 selection:bg-cyan-500/30 selection:text-cyan-900 dark:selection:text-cyan-100 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0f172a] text-slate-900 dark:text-slate-200 transition-colors duration-200">
       
-      {/* Header / Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-8">
-            <span className="font-mono font-bold text-lg tracking-tighter text-slate-900 dark:text-slate-100">
-              <span className="text-cyan-600 dark:text-cyan-500">./</span>SK_PROFILE
-            </span>
-            
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-6">
-              <a 
-                href="https://techradar.sanjeevonline.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[10px] font-mono font-bold tracking-widest text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-all uppercase py-1 border-b-2 border-cyan-500/30 hover:border-cyan-500 group"
-              >
-                <Radar size={14} className="group-hover:animate-spin-slow transition-all duration-700" />
-                <span className="drop-shadow-[0_0_8_px_rgba(6,182,212,0.4)]">TECH_RADAR</span>
-              </a>
-            </div>
+      {/* Ultra-Minimal Header */}
+      <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800/50">
+        <div className="max-w-4xl mx-auto px-6 h-12 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <span className="font-bold text-[10.5px] text-slate-900 dark:text-white uppercase tracking-[0.15em]">Sanjeev Kumar</span>
           </div>
 
-          <div className="flex items-center gap-4">
-             {/* Mobile-only Radar Link Icon */}
-             <a 
-                href="https://techradar.sanjeevonline.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="md:hidden p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/10 transition-colors"
-                aria-label="Tech Radar"
-             >
-               <Radar size={18} className="animate-pulse" />
-             </a>
-
-             <button 
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all shadow-sm"
-                aria-label="Toggle theme"
-             >
-               {isDark ? <Sun size={18} /> : <Moon size={18} />}
-             </button>
-             <div className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded bg-green-500/10 border border-green-500/20 text-xs text-green-600 dark:text-green-400 font-mono">
-               <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-               AVAILABLE
-             </div>
+          <div className="flex items-center gap-6">
+            <nav className="hidden sm:flex items-center gap-5 text-[9.5px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+              <a href="#expertise" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Expertise</a>
+              <a href="#career" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">History</a>
+              <a href="#testimonials" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Endorsements</a>
+            </nav>
+            <button 
+              onClick={toggleTheme}
+              className="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-400"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun size={12} /> : <Moon size={12} />}
+            </button>
           </div>
         </div>
-      </nav>
+      </header>
 
-      <main className="pt-16">
+      <main className="max-w-4xl mx-auto px-6 py-8 space-y-12">
         <HeroSection />
         <StrategicPillars />
-        <FlagshipProjects />
-        <BusinessImpact />
-        <TechnicalExpertise />
-        <CareerTimeline />
-        <SocialProof />
+        <div id="expertise">
+          <TechnicalExpertise />
+        </div>
+        <div id="career">
+          <CareerTimeline />
+        </div>
+        <div id="testimonials">
+          <SocialProof />
+        </div>
       </main>
 
       <Footer />
-
-      <style>{`
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
-        }
-      `}</style>
     </div>
   );
 };

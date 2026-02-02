@@ -1,92 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import { Terminal, ShieldCheck, Database, Briefcase, Github, Rocket, Users, Bot, MapPin } from 'lucide-react';
+import React from 'react';
+import { Mail, Linkedin, MapPin, Globe, Github } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
-  const [text, setText] = useState('');
-  const fullText = `> INITIALIZING EXECUTIVE PROFILE...
-> LOAD MODULE: ENTERPRISE_PRODUCT_LEADERSHIP
-> LOAD MODULE: AI_POWERED_WORKFLOW_INNOVATION
-> LOAD MODULE: EMPLOYEE_EXPERIENCE_EXEC
-> AUTH: SANJEEV KUMAR
-> LOC: EDISON, NJ
-> SCALE: 45,000+ USERS | $20M+ PORTFOLIO
-> EXP: 15+ YEARS BUILDING ENTERPRISE PRODUCTS
-> STATUS: OPERATIONAL...`;
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setText(fullText.slice(0, i));
-      i++;
-      if (i > fullText.length) clearInterval(interval);
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="relative w-full py-10 md:py-16 px-4 md:px-6 overflow-hidden bg-slate-50 dark:bg-slate-950 flex justify-center transition-colors duration-300">
-      {/* Background Decor */}
-      <div className="absolute inset-0 grid-bg opacity-20 z-0"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl z-0 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-3xl z-0 translate-x-1/2 translate-y-1/2"></div>
-
-      <div className="relative z-10 max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        
-        {/* Left: Executive Console */}
-        <div className="bg-slate-900 border border-slate-700 rounded-lg shadow-2xl shadow-black/50 overflow-hidden font-mono text-sm md:text-base transform transition-transform hover:scale-[1.01] w-full max-w-2xl mx-auto lg:mx-0">
-          <div className="bg-slate-800 px-4 py-2 flex items-center gap-2 border-b border-slate-700">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="ml-2 text-slate-400 text-xs">exec@product-console:~</span>
-          </div>
-          <div className="p-6 text-cyan-400 min-h-[200px] md:min-h-[250px] whitespace-pre-wrap">
-            {text}
-            <span className="animate-blink inline-block w-2 h-5 bg-cyan-400 align-middle ml-1"></span>
+    <section className="pb-8 border-none">
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Global Enterprise Architect & AI Platform Leader
+          </h1>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <span className="flex items-center gap-1.5"><MapPin size={14} /> Edison, NJ</span>
+            <span className="flex items-center gap-1.5"><Mail size={14} /> sk@sanjeevonline.com</span>
+            <a href="https://linkedin.com/in/sanjeevsprofile" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+              <Linkedin size={14} /> LinkedIn
+            </a>
+            <a href="https://github.com/sanjeevonline" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+              <Github size={14} /> GitHub
+            </a>
+            <a href="https://techradar.sanjeevonline.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+              <Globe size={14} /> AI Radar
+            </a>
           </div>
         </div>
 
-        {/* Right: Intro Text */}
-        <div className="space-y-4 md:space-y-6 text-center lg:text-left">
-          <div className="flex flex-col items-center lg:items-start gap-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 text-xs font-semibold tracking-wider uppercase shadow-sm">
-              <Bot size={14} />
-              AI-Powered Workflow Innovator
-            </div>
-            <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-mono">
-              <MapPin size={12} />
-              EDISON, NJ
-            </div>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
-            Sanjeev Kumar
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Enterprise Product Leader with <span className="text-slate-900 dark:text-slate-200 font-medium">15+ years</span> building platforms used by <span className="text-slate-900 dark:text-slate-200 font-medium">45,000+ employees</span>. Driving step-change productivity through <span className="text-cyan-600 dark:text-cyan-400 font-bold">Generative & Agentic AI</span> embedded into daily workflows.
+        <div className="max-w-2xl prose dark:prose-invert prose-slate">
+          <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            With 20+ years of experience driving digital transformation for organizations with <strong>45,000+ users</strong>. 
+            I bridge the gap between complex engineering and measurable business value, overseeing <strong>$20M+ annual portfolios </strong> 
+            and leading global teams of <strong>100+ engineers</strong>. Pioneer in <strong>Generative and Agentic AI</strong> adoption, architecting enterprise-grade platforms that balance rapid 
+            innovation with rigorous governance, safety, and cost control.
           </p>
+        </div>
 
-          <div className="flex flex-col items-center lg:items-start gap-6 md:gap-8">
-            <div className="flex flex-wrap gap-4 md:gap-6 text-sm font-medium text-slate-500 dark:text-slate-400 justify-center lg:justify-start">
-              <div className="flex items-center gap-2">
-                <Users className="text-blue-600 dark:text-blue-400" size={20} />
-                Organization Builder
-              </div>
-              <div className="flex items-center gap-2">
-                <Briefcase className="text-blue-600 dark:text-blue-400" size={20} />
-                Portfolio Owner ($20M+)
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="text-blue-600 dark:text-blue-400" size={20} />
-                Experience Executive
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+          <StatBox label="Years Exp" value="20+" />
+          <StatBox label="Engineers Led" value="100+" />
+          <StatBox label="Portfolio" value="$20M+" />
+          <StatBox label="User Base" value="45k+" />
         </div>
       </div>
     </section>
   );
 };
+
+const StatBox = ({ label, value }: { label: string; value: string }) => (
+  <div className="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded">
+    <div className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">{value}</div>
+    <div className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 font-semibold">{label}</div>
+  </div>
+);
 
 export default HeroSection;

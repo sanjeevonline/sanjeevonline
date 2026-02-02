@@ -1,246 +1,64 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Cpu, Cloud, Database, Lock, LayoutGrid, Brain, Terminal, Bot, Star, Shield, Layout, Globe, Briefcase, Users, Server, Settings } from 'lucide-react';
-import { SkillCategory } from '../types';
-
-const skillData: SkillCategory[] = [
-  {
-    id: 'leadership',
-    label: 'Enterprise Platform Leadership',
-    skills: [
-      { name: 'Enterprise Tech Strategy', level: 98 },
-      { name: 'Org Design (Managers-of-Managers)', level: 98 },
-      { name: 'Exec Hiring & Succession Planning', level: 94 },
-      { name: 'Portfolio Management ($15M+)', level: 97 },
-      { name: 'Product Operating Models', level: 95 },
-      { name: 'Risk & Regulatory Readiness', level: 92 }
-    ]
-  },
-  {
-    id: 'ai_strategy',
-    label: 'AI, ML & Platform',
-    skills: [
-      { name: 'Generative & Agentic Platforms', level: 98 },
-      { name: 'Responsible AI Adoption', level: 96 },
-      { name: 'Enterprise RAG Architectures', level: 98 },
-      { name: 'LLM Fine-Tuning & Lifecycle', level: 92 },
-      { name: 'MLOps Operating Models', level: 90 },
-      { name: 'LangChain / LangGraph', level: 95 }
-    ]
-  },
-  {
-    id: 'cloud_infra',
-    label: 'Cloud, Infrastructure & Reliability',
-    skills: [
-      { name: 'Cloud & Hybrid (AWS/Azure/GCP)', level: 98 },
-      { name: 'Reliability Engineering (SRE)', level: 96 },
-      { name: 'DevSecOps & IaC Models', level: 95 },
-      { name: 'Modernization & Legacy Retirement', level: 95 },
-      { name: 'Availability & Resilience', level: 94 },
-      { name: 'Disaster Recovery & Observability', level: 92 }
-    ]
-  },
-  {
-    id: 'data_analytics',
-    label: 'Data & Analytics Platforms',
-    skills: [
-      { name: 'Enterprise Data Strategy', level: 97 },
-      { name: 'Lakehouse & Data Mesh', level: 98 },
-      { name: 'Snowflake & Databricks', level: 96 },
-      { name: 'Streaming & Event-Driven Data', level: 94 },
-      { name: 'Data Governance & MDM', level: 90 },
-      { name: 'AI-Ready Data Pipelines', level: 95 }
-    ]
-  },
-  {
-    id: 'saas',
-    label: 'SAAS Platforms',
-    skills: [
-      { name: 'Microsoft 365 Enterprise', level: 95 },
-      { name: 'Salesforce Integration', level: 92 },
-      { name: 'ServiceNow Platform Strategy', level: 90 },
-      { name: 'SAP Ecosystem Integration', level: 88 },
-      { name: 'Vector Search & Knowledge Graph', level: 96 }
-    ]
-  },
-  {
-    id: 'governance',
-    label: 'Architecture & Governance',
-    skills: [
-      { name: 'EA Leadership & Standards', level: 98 },
-      { name: 'Decision Frameworks (ADR/4+1)', level: 97 },
-      { name: 'Platform Interoperability', level: 95 },
-      { name: 'TOGAF / Zachman Frameworks', level: 90 },
-      { name: 'Platform Guardrails', level: 98 },
-      { name: 'Modernization Roadmaps', level: 96 }
-    ]
-  },
-  {
-    id: 'engineering',
-    label: 'Software & Platform Engineering',
-    skills: [
-      { name: 'IDP (Internal Developer Platforms)', level: 95 },
-      { name: 'API & Service Platform Strategy', level: 96 },
-      { name: 'Developer Experience (DevEx)', level: 98 },
-      { name: 'Engineering Excellence Standards', level: 97 },
-      { name: 'Full-Stack Leadership (Java/Python)', level: 95 },
-      { name: 'Cloud-Native Engineering', level: 98 }
-    ]
-  }
-];
+import React from 'react';
 
 const TechnicalExpertise: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('core');
-  const [animate, setAnimate] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) setAnimate(true);
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    setAnimate(false);
-    const timer = setTimeout(() => setAnimate(true), 100);
-    return () => clearTimeout(timer);
-  }, [activeCategory]);
-
-  const coreSkills = [
-    { name: 'Enterprise Tech Strategy', level: 98, category: 'leadership' },
-    { name: 'Generative & Agentic Platforms', level: 98, category: 'ai_strategy' },
-    { name: 'Cloud & Hybrid (AWS/Azure/GCP)', level: 98, category: 'cloud_infra' },
-    { name: 'EA Leadership & Standards', level: 98, category: 'governance' },
-    { name: 'Lakehouse & Data Mesh', level: 98, category: 'data_analytics' },
-    { name: 'Developer Experience (DevEx)', level: 98, category: 'engineering' },
-    { name: 'Platform Guardrails', level: 98, category: 'governance' },
-    { name: 'Portfolio Management ($15M+)', level: 97, category: 'leadership' }
+  const categories = [
+    {
+      title: "Executive Leadership & Strategy",
+      skills: [
+        "Enterprise Architecture & Platform Strategy",
+        "AI Transformation & Operating Models",
+        "Portfolio & Investment Governance ($20M+)",
+        "Organization Design & Scaling (100+ Engineers)",
+        "Product-Centric Delivery & Value Realization",
+        "Executive Advisory, Risk & Decision Governance"
+      ]
+    },
+    {
+      title: "AI, Data & Intelligent Platforms",
+      skills: [
+        "Generative & Agentic AI",
+        "Retrieval-Augmented Generation (RAG) Systems",
+        "LLM Enablement, Safety & Governance",
+        "MLOps, Vector Databases & Model Lifecycle",
+        "Data Lakehouse & Medallion Architecture",
+        "Advanced Analytics & Knowledge Platforms"
+      ]
+    },
+    {
+      title: "Cloud, Engineering & Platforms",
+      skills: [
+        "Cloud-Native Architecture (AWS, Azure, Multi-Cloud)",
+        "Kubernetes, Microservices & Event-Driven Systems",
+        "Internal Developer Platforms (IDP) & DevEx",
+        "DevSecOps, CI/CD & Platform Engineering",
+        "Distributed Systems, APIs & Integration",
+        "Java, Python, SQL"
+      ]
+    }
   ];
 
-  const filteredSkills = activeCategory === 'all' 
-    ? skillData.flatMap(c => c.skills.map(s => ({...s, category: c.id})))
-    : activeCategory === 'core'
-    ? coreSkills
-    : skillData.find(c => c.id === activeCategory)?.skills.map(s => ({...s, category: activeCategory})) || [];
-
-  const getCategoryColor = (catId: string) => {
-    switch (catId) {
-      case 'leadership': return 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]';
-      case 'ai_strategy': return 'bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.3)]';
-      case 'cloud_infra': return 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.3)]';
-      case 'saas': return 'bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.3)]';
-      case 'data_analytics': return 'bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.3)]';
-      case 'governance': return 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.3)]';
-      case 'engineering': return 'bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.3)]';
-      default: return 'bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)]';
-    }
-  };
-
-  const getCategoryLabel = (catId: string) => {
-    switch (catId) {
-      case 'leadership': return 'EXEC_LEADERSHIP';
-      case 'ai_strategy': return 'AI_ML_DOMAIN';
-      case 'cloud_infra': return 'INFRA_REL';
-      case 'saas': return 'SAAS_PLATFORMS';
-      case 'data_analytics': return 'DATA_STRATEGY';
-      case 'governance': return 'GOVERNANCE';
-      case 'engineering': return 'ENG_OVERSIGHT';
-      default: return 'SKILL';
-    }
-  };
-
   return (
-    <section ref={sectionRef} className="py-10 md:py-16 px-4 max-w-7xl mx-auto transition-colors duration-300" id="technical-expertise">
-      <div className="mb-8 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
-            <Cpu className="text-cyan-600 dark:text-cyan-400" />
-            Executive & Technical Expertise
-          </h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
-            Bridging technical depth with operational excellence to drive enterprise transformation.
-          </p>
-        </div>
-
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl hidden lg:block min-w-[240px] shadow-sm">
-           <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase mb-3 tracking-widest font-bold">
-             <Star size={10} className="text-yellow-500" />
-             Strategic Readiness
-           </div>
-           <div className="space-y-2">
-             <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Governance Lock</span>
-                <span className="text-green-600 dark:text-green-400 font-bold">ADR / 4+1</span>
-             </div>
-             <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Scale Capacity</span>
-                <span className="text-cyan-600 dark:text-cyan-400 font-bold">100+ ENG</span>
-             </div>
-             <div className="flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-500 dark:text-slate-400">Portfolio</span>
-                <span className="text-purple-600 dark:text-purple-400 font-bold">$20M+ ANNUAL</span>
-             </div>
-           </div>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap gap-2 mb-8 md:mb-10 p-2 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 w-fit backdrop-blur-sm shadow-sm">
-        <FilterBtn active={activeCategory === 'core'} onClick={() => setActiveCategory('core')} icon={<Star size={14} />} label="CORE_EXECUTIVE" />
-        <FilterBtn active={activeCategory === 'leadership'} onClick={() => setActiveCategory('leadership')} icon={<Briefcase size={14} />} label="PLATFORM_LEAD" />
-        <FilterBtn active={activeCategory === 'ai_strategy'} onClick={() => setActiveCategory('ai_strategy')} icon={<Bot size={14} />} label="AI_ML_PLATFORM" />
-        <FilterBtn active={activeCategory === 'cloud_infra'} onClick={() => setActiveCategory('cloud_infra')} icon={<Server size={14} />} label="INFRA_REL" />
-        <FilterBtn active={activeCategory === 'governance'} onClick={() => setActiveCategory('governance')} icon={<Shield size={14} />} label="GOVERNANCE" />
-        <FilterBtn active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} icon={<LayoutGrid size={14} />} label="ALL_DOMAINS" />
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-        {filteredSkills.map((skill, idx) => (
-          <div key={`${skill.name}-${idx}`} className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 rounded-lg p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-cyan-900/20 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-            
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-slate-800 dark:text-slate-100 font-bold text-[11px] leading-tight tracking-tight uppercase group-hover:text-cyan-700 dark:group-hover:text-white transition-colors">
-                  {skill.name}
-                </span>
-                <div className={`w-1.5 h-1.5 rounded-full shrink-0 ml-2 animate-pulse ${getCategoryColor(skill.category)}`}></div>
-              </div>
-              
-              <div className="w-full bg-slate-100 dark:bg-slate-950 h-1.5 rounded-full overflow-hidden mt-4">
-                <div className={`h-full rounded-full transition-all duration-1000 ease-out ${getCategoryColor(skill.category)}`} style={{ width: animate ? `${skill.level}%` : '0%' }}></div>
-              </div>
+    <section className="py-8 border-none">
+      <div className="space-y-8">
+        <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-blue-600 dark:text-blue-500">Executive & Technical Expertise</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {categories.map((cat, i) => (
+            <div key={i} className="space-y-4">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">{cat.title}</h3>
+              <ul className="space-y-2">
+                {cat.skills.map((skill, si) => (
+                  <li key={si} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
+                    {skill}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <div className="relative z-10 flex justify-between items-center mt-5">
-                <span className="text-[9px] text-slate-500 dark:text-slate-500 font-mono font-bold tracking-tighter">LVL: {skill.level}</span>
-                <span className={`text-[9px] font-mono font-bold tracking-tighter uppercase px-1.5 py-0.5 bg-slate-50 dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800/50`}>
-                    {getCategoryLabel(skill.category)}
-                </span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 };
-
-const FilterBtn = ({ active, onClick, icon, label }: any) => (
-  <button
-    onClick={onClick}
-    className={`
-      flex items-center gap-2 px-3 py-2 rounded-lg text-[10px] font-mono tracking-widest transition-all uppercase
-      ${active 
-        ? 'bg-cyan-500/10 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.1)]' 
-        : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 border border-transparent'}
-    `}
-  >
-    {icon}
-    {label}
-  </button>
-);
 
 export default TechnicalExpertise;
